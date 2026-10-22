@@ -1,6 +1,6 @@
-# DeSci4Math
+# MathMarket
 
-DeSci4Math is a living record of ideas, mechanisms, ecosystem observations,
+MathMarket is a living record of ideas, mechanisms, ecosystem observations,
 and open questions about decentralized science markets. The documentation
 will evolve as discussions and practical experience develop.
 

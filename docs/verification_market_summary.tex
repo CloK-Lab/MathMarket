@@ -1,854 +1,180 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,a4paper,reqno]{amsart}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath,amssymb,newtxtext,newtxmath}
-\usepackage[margin=0.72in]{geometry}
-\usepackage{microtype,booktabs,array,graphicx,xcolor,tikz,fancyhdr}
-\usetikzlibrary{svg.path}
-\usepackage[hidelinks]{hyperref}
-\usepackage{titlesec}
-\titleformat{\section}{\large\bfseries}{\thesection}{0.5em}{}
-\titlespacing*{\section}{0pt}{10pt}{5pt}
-\titleformat{\subsection}{\normalsize\bfseries}{}{0pt}{}
-\titlespacing*{\subsection}{0pt}{8pt}{3pt}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{5pt}
+\usepackage{lmodern,amssymb}
+\usepackage[textwidth=160mm,textheight=235mm,centering,headheight=12pt,headsep=18pt]{geometry}
+\usepackage{microtype,graphicx,xcolor,needspace}
+% Alphabetic citation labels are defined explicitly in the bibliography.
+\definecolor{linkblue}{RGB}{0,60,150}
+\usepackage[colorlinks=true,linkcolor=linkblue,citecolor=linkblue,urlcolor=linkblue,bookmarksnumbered=true]{hyperref}
+\makeatletter
+\renewcommand{\@biblabel}[1]{[\textcolor{linkblue}{#1}]}
+\def\ps@mathpaper{%
+  \let\@mkboth\markboth
+  \def\@oddhead{\normalfont\scriptsize
+    \makebox[\textwidth][c]{\shorttitle}\llap{\thepage}}%
+  \def\@evenhead{\normalfont\scriptsize
+    \rlap{\thepage}\makebox[\textwidth][c]{\MakeUppercase{\shortauthors}}}%
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty}
+\makeatother
+\pagestyle{mathpaper}
+\AddToHook{cmd/section/before}{\Needspace{7\baselineskip}}
+\numberwithin{equation}{section}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.8}
 \setlength{\emergencystretch}{2em}
-\pagestyle{fancy}\fancyhf{}
-\fancyfoot[L]{\footnotesize Decentralized Markets for Crowdsourced Mathematics}
-\fancyfoot[R]{\footnotesize\thepage\,/\,3}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0.3pt}
-\hypersetup{pdftitle={Decentralized Markets for Crowdsourced Mathematics: Three-Page Summary},pdfauthor={Varifold Lab}}
-% MAP_MACRO_BEGIN
-% Generated from the Excalidraw SVG; edit the .excalidraw source.
-\newcommand{\ecosystemmap}{%
-\begingroup
-\definecolor{mapcolor0}{HTML}{ffffff}
-\definecolor{mapcolor1}{HTML}{1e4d78}
-\definecolor{mapcolor2}{HTML}{67418b}
-\definecolor{mapcolor3}{HTML}{24645e}
-\definecolor{mapcolor4}{HTML}{293542}
-\definecolor{mapcolor5}{HTML}{e9f2fa}
-\definecolor{mapcolor6}{HTML}{f2edf7}
-\definecolor{mapcolor7}{HTML}{eaf5f1}
-\definecolor{mapcolor8}{HTML}{f2f4f6}
-\definecolor{mapcolor9}{HTML}{f5f5f3}
-\definecolor{mapcolor10}{HTML}{566474}
-\resizebox{\linewidth}{!}{%
-\begin{tikzpicture}[x=1pt,y=1pt]
-\path[use as bounding box] (0,0) rectangle (1336,-1065);
-\path[fill=mapcolor0,draw=none] (0,0) rectangle (1336,-1065);
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{273pt}{-148pt}}
-\pgfpathcurveto{\pgfpoint{273.21pt}{-187.75pt}}{\pgfpoint{272.32pt}{-226.33pt}}{\pgfpoint{273pt}{-257pt}}
-\pgfpathmoveto{\pgfpoint{273pt}{-148pt}}
-\pgfpathcurveto{\pgfpoint{273.3pt}{-188.1pt}}{\pgfpoint{273.59pt}{-229.17pt}}{\pgfpoint{273pt}{-257pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{264.72pt}{-233.41pt}}
-\pgfpathcurveto{\pgfpoint{268.29pt}{-242.04pt}}{\pgfpoint{270.41pt}{-249.48pt}}{\pgfpoint{273pt}{-257pt}}
-\pgfpathmoveto{\pgfpoint{264.72pt}{-233.41pt}}
-\pgfpathcurveto{\pgfpoint{267.52pt}{-241.91pt}}{\pgfpoint{270.88pt}{-251.33pt}}{\pgfpoint{273pt}{-257pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{281.82pt}{-233.61pt}}
-\pgfpathcurveto{\pgfpoint{279.15pt}{-242.12pt}}{\pgfpoint{275.05pt}{-249.49pt}}{\pgfpoint{273pt}{-257pt}}
-\pgfpathmoveto{\pgfpoint{281.82pt}{-233.61pt}}
-\pgfpathcurveto{\pgfpoint{278.28pt}{-241.95pt}}{\pgfpoint{275.31pt}{-251.3pt}}{\pgfpoint{273pt}{-257pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor2}
-\pgfsetlinewidth{2.5pt}
-\pgfsetdash{{8pt}{10pt}}{0pt}
-\pgfpathmoveto{\pgfpoint{1088pt}{-148pt}}
-\pgfpathcurveto{\pgfpoint{1087.54pt}{-187.03pt}}{\pgfpoint{1088.63pt}{-228.54pt}}{\pgfpoint{1088pt}{-257pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor2}
-\pgfsetlinewidth{2.5pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{1079.6pt}{-233.45pt}}
-\pgfpathcurveto{\pgfpoint{1082.45pt}{-241.27pt}}{\pgfpoint{1086.59pt}{-251.63pt}}{\pgfpoint{1088pt}{-257pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor2}
-\pgfsetlinewidth{2.5pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{1096.71pt}{-233.56pt}}
-\pgfpathcurveto{\pgfpoint{1093.31pt}{-241.45pt}}{\pgfpoint{1091.22pt}{-251.77pt}}{\pgfpoint{1088pt}{-257pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{333pt}{-389pt}}
-\pgfpathcurveto{\pgfpoint{379.27pt}{-430.06pt}}{\pgfpoint{426.93pt}{-468.92pt}}{\pgfpoint{463pt}{-498pt}}
-\pgfpathmoveto{\pgfpoint{333pt}{-389pt}}
-\pgfpathcurveto{\pgfpoint{373.14pt}{-422.8pt}}{\pgfpoint{413.71pt}{-456.66pt}}{\pgfpoint{463pt}{-498pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{439.5pt}{-489.47pt}}
-\pgfpathcurveto{\pgfpoint{447.1pt}{-493.93pt}}{\pgfpoint{455.93pt}{-496.16pt}}{\pgfpoint{463pt}{-498pt}}
-\pgfpathmoveto{\pgfpoint{439.5pt}{-489.47pt}}
-\pgfpathcurveto{\pgfpoint{446.7pt}{-492.08pt}}{\pgfpoint{453.79pt}{-494.35pt}}{\pgfpoint{463pt}{-498pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{450.49pt}{-476.36pt}}
-\pgfpathcurveto{\pgfpoint{454.06pt}{-485.61pt}}{\pgfpoint{458.88pt}{-492.61pt}}{\pgfpoint{463pt}{-498pt}}
-\pgfpathmoveto{\pgfpoint{450.49pt}{-476.36pt}}
-\pgfpathcurveto{\pgfpoint{454.16pt}{-483.13pt}}{\pgfpoint{457.79pt}{-489.53pt}}{\pgfpoint{463pt}{-498pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{1028pt}{-389pt}}
-\pgfpathcurveto{\pgfpoint{966.92pt}{-428.51pt}}{\pgfpoint{904.42pt}{-467.58pt}}{\pgfpoint{858pt}{-498pt}}
-\pgfpathmoveto{\pgfpoint{1028pt}{-389pt}}
-\pgfpathcurveto{\pgfpoint{962.48pt}{-430.37pt}}{\pgfpoint{896.25pt}{-472.89pt}}{\pgfpoint{858pt}{-498pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{1012.81pt}{-408.86pt}}
-\pgfpathcurveto{\pgfpoint{1019.4pt}{-402.33pt}}{\pgfpoint{1024.38pt}{-394.35pt}}{\pgfpoint{1028pt}{-389pt}}
-\pgfpathmoveto{\pgfpoint{1012.81pt}{-408.86pt}}
-\pgfpathcurveto{\pgfpoint{1019.47pt}{-401.44pt}}{\pgfpoint{1024.74pt}{-394.21pt}}{\pgfpoint{1028pt}{-389pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{1003.6pt}{-394.45pt}}
-\pgfpathcurveto{\pgfpoint{1013.55pt}{-393.23pt}}{\pgfpoint{1021.88pt}{-390.49pt}}{\pgfpoint{1028pt}{-389pt}}
-\pgfpathmoveto{\pgfpoint{1003.6pt}{-394.45pt}}
-\pgfpathcurveto{\pgfpoint{1013.75pt}{-392.66pt}}{\pgfpoint{1022.58pt}{-391pt}}{\pgfpoint{1028pt}{-389pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{873.03pt}{-478.02pt}}
-\pgfpathcurveto{\pgfpoint{868.59pt}{-485.86pt}}{\pgfpoint{862.54pt}{-492.4pt}}{\pgfpoint{858pt}{-498pt}}
-\pgfpathmoveto{\pgfpoint{873.03pt}{-478.02pt}}
-\pgfpathcurveto{\pgfpoint{867.82pt}{-485.82pt}}{\pgfpoint{861.42pt}{-493.99pt}}{\pgfpoint{858pt}{-498pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{882.36pt}{-492.36pt}}
-\pgfpathcurveto{\pgfpoint{874.52pt}{-494.92pt}}{\pgfpoint{865.07pt}{-496.23pt}}{\pgfpoint{858pt}{-498pt}}
-\pgfpathmoveto{\pgfpoint{882.36pt}{-492.36pt}}
-\pgfpathcurveto{\pgfpoint{873.61pt}{-494.56pt}}{\pgfpoint{863.6pt}{-497.19pt}}{\pgfpoint{858pt}{-498pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor4}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{988pt}{-563pt}}
-\pgfpathcurveto{\pgfpoint{962.72pt}{-563.13pt}}{\pgfpoint{935.81pt}{-562.52pt}}{\pgfpoint{918pt}{-563pt}}
-\pgfpathmoveto{\pgfpoint{988pt}{-563pt}}
-\pgfpathcurveto{\pgfpoint{970.04pt}{-563.2pt}}{\pgfpoint{952.45pt}{-563.09pt}}{\pgfpoint{918pt}{-563pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor4}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{964.48pt}{-571.47pt}}
-\pgfpathcurveto{\pgfpoint{973.29pt}{-568.22pt}}{\pgfpoint{980.48pt}{-564.52pt}}{\pgfpoint{988pt}{-563pt}}
-\pgfpathmoveto{\pgfpoint{964.48pt}{-571.47pt}}
-\pgfpathcurveto{\pgfpoint{970.72pt}{-569.64pt}}{\pgfpoint{977.3pt}{-567.35pt}}{\pgfpoint{988pt}{-563pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor4}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{964.54pt}{-554.37pt}}
-\pgfpathcurveto{\pgfpoint{973.35pt}{-557.35pt}}{\pgfpoint{980.51pt}{-559.89pt}}{\pgfpoint{988pt}{-563pt}}
-\pgfpathmoveto{\pgfpoint{964.54pt}{-554.37pt}}
-\pgfpathcurveto{\pgfpoint{970.7pt}{-556.95pt}}{\pgfpoint{977.27pt}{-559.08pt}}{\pgfpoint{988pt}{-563pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor4}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{941.52pt}{-554.52pt}}
-\pgfpathcurveto{\pgfpoint{933.2pt}{-557.59pt}}{\pgfpoint{923.23pt}{-560.08pt}}{\pgfpoint{918pt}{-563pt}}
-\pgfpathmoveto{\pgfpoint{941.52pt}{-554.52pt}}
-\pgfpathcurveto{\pgfpoint{935.54pt}{-556.99pt}}{\pgfpoint{929.97pt}{-559.08pt}}{\pgfpoint{918pt}{-563pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor4}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{941.47pt}{-571.62pt}}
-\pgfpathcurveto{\pgfpoint{933.15pt}{-568.46pt}}{\pgfpoint{923.2pt}{-564.71pt}}{\pgfpoint{918pt}{-563pt}}
-\pgfpathmoveto{\pgfpoint{941.47pt}{-571.62pt}}
-\pgfpathcurveto{\pgfpoint{935.56pt}{-569.67pt}}{\pgfpoint{930pt}{-567.34pt}}{\pgfpoint{918pt}{-563pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{498pt}{-634pt}}
-\pgfpathcurveto{\pgfpoint{424.8pt}{-675.56pt}}{\pgfpoint{352.38pt}{-717.82pt}}{\pgfpoint{298pt}{-751pt}}
-\pgfpathmoveto{\pgfpoint{498pt}{-634pt}}
-\pgfpathcurveto{\pgfpoint{431.28pt}{-673.48pt}}{\pgfpoint{365.37pt}{-711.59pt}}{\pgfpoint{298pt}{-751pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{313.98pt}{-731.77pt}}
-\pgfpathcurveto{\pgfpoint{307.64pt}{-737.93pt}}{\pgfpoint{302.4pt}{-744.47pt}}{\pgfpoint{298pt}{-751pt}}
-\pgfpathmoveto{\pgfpoint{313.98pt}{-731.77pt}}
-\pgfpathcurveto{\pgfpoint{308.22pt}{-738.63pt}}{\pgfpoint{303.14pt}{-744.34pt}}{\pgfpoint{298pt}{-751pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{322.6pt}{-746.54pt}}
-\pgfpathcurveto{\pgfpoint{313.09pt}{-747.29pt}}{\pgfpoint{304.7pt}{-748.45pt}}{\pgfpoint{298pt}{-751pt}}
-\pgfpathmoveto{\pgfpoint{322.6pt}{-746.54pt}}
-\pgfpathcurveto{\pgfpoint{314.03pt}{-748.54pt}}{\pgfpoint{306.11pt}{-749.37pt}}{\pgfpoint{298pt}{-751pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{808pt}{-634pt}}
-\pgfpathcurveto{\pgfpoint{894.74pt}{-676.52pt}}{\pgfpoint{984.26pt}{-718.92pt}}{\pgfpoint{1048pt}{-751pt}}
-\pgfpathmoveto{\pgfpoint{808pt}{-634pt}}
-\pgfpathcurveto{\pgfpoint{856.74pt}{-656.9pt}}{\pgfpoint{905.26pt}{-679.64pt}}{\pgfpoint{1048pt}{-751pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{1023.16pt}{-748.21pt}}
-\pgfpathcurveto{\pgfpoint{1030.87pt}{-750.34pt}}{\pgfpoint{1042.49pt}{-751.03pt}}{\pgfpoint{1048pt}{-751pt}}
-\pgfpathmoveto{\pgfpoint{1023.16pt}{-748.21pt}}
-\pgfpathcurveto{\pgfpoint{1028.58pt}{-749.23pt}}{\pgfpoint{1033.52pt}{-748.59pt}}{\pgfpoint{1048pt}{-751pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{1030.76pt}{-732.9pt}}
-\pgfpathcurveto{\pgfpoint{1035.75pt}{-740.65pt}}{\pgfpoint{1044.6pt}{-746.93pt}}{\pgfpoint{1048pt}{-751pt}}
-\pgfpathmoveto{\pgfpoint{1030.76pt}{-732.9pt}}
-\pgfpathcurveto{\pgfpoint{1034.62pt}{-737.06pt}}{\pgfpoint{1038.02pt}{-739.53pt}}{\pgfpoint{1048pt}{-751pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{778pt}{-753pt}}
-\pgfpathcurveto{\pgfpoint{753.33pt}{-710.17pt}}{\pgfpoint{727.48pt}{-666.59pt}}{\pgfpoint{710pt}{-634pt}}
-\pgfpathmoveto{\pgfpoint{778pt}{-753pt}}
-\pgfpathcurveto{\pgfpoint{759.27pt}{-719.5pt}}{\pgfpoint{740.22pt}{-687.9pt}}{\pgfpoint{710pt}{-634pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{729.03pt}{-650.21pt}}
-\pgfpathcurveto{\pgfpoint{722.67pt}{-644.84pt}}{\pgfpoint{714.67pt}{-638.74pt}}{\pgfpoint{710pt}{-634pt}}
-\pgfpathmoveto{\pgfpoint{729.03pt}{-650.21pt}}
-\pgfpathcurveto{\pgfpoint{723.66pt}{-645.07pt}}{\pgfpoint{718.05pt}{-641.68pt}}{\pgfpoint{710pt}{-634pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{714.16pt}{-658.65pt}}
-\pgfpathcurveto{\pgfpoint{713.18pt}{-650.2pt}}{\pgfpoint{710.6pt}{-641.02pt}}{\pgfpoint{710pt}{-634pt}}
-\pgfpathmoveto{\pgfpoint{714.16pt}{-658.65pt}}
-\pgfpathcurveto{\pgfpoint{712.88pt}{-651.24pt}}{\pgfpoint{711.35pt}{-645.53pt}}{\pgfpoint{710pt}{-634pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{538pt}{-813pt}}
-\pgfpathcurveto{\pgfpoint{621.74pt}{-813.85pt}}{\pgfpoint{706.38pt}{-813.81pt}}{\pgfpoint{768pt}{-813pt}}
-\pgfpathmoveto{\pgfpoint{538pt}{-813pt}}
-\pgfpathcurveto{\pgfpoint{618.25pt}{-812.36pt}}{\pgfpoint{697.35pt}{-812.79pt}}{\pgfpoint{768pt}{-813pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{744.48pt}{-821.47pt}}
-\pgfpathcurveto{\pgfpoint{752.86pt}{-818.32pt}}{\pgfpoint{762.35pt}{-815.18pt}}{\pgfpoint{768pt}{-813pt}}
-\pgfpathmoveto{\pgfpoint{744.48pt}{-821.47pt}}
-\pgfpathcurveto{\pgfpoint{753.31pt}{-818.03pt}}{\pgfpoint{760.77pt}{-815.6pt}}{\pgfpoint{768pt}{-813pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{744.54pt}{-804.37pt}}
-\pgfpathcurveto{\pgfpoint{752.99pt}{-807.45pt}}{\pgfpoint{762.46pt}{-810.55pt}}{\pgfpoint{768pt}{-813pt}}
-\pgfpathmoveto{\pgfpoint{744.54pt}{-804.37pt}}
-\pgfpathcurveto{\pgfpoint{753.34pt}{-806.85pt}}{\pgfpoint{760.79pt}{-810.35pt}}{\pgfpoint{768pt}{-813pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetfillcolor{mapcolor5}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{49.25pt}{-18pt}}
-\pgfpathcurveto{\pgfpoint{201.15pt}{-19.74pt}}{\pgfpoint{354.71pt}{-21.54pt}}{\pgfpoint{496.75pt}{-18pt}}
-\pgfpathcurveto{\pgfpoint{520.14pt}{-18.3pt}}{\pgfpoint{530.42pt}{-27.11pt}}{\pgfpoint{528pt}{-49.25pt}}
-\pgfpathcurveto{\pgfpoint{527.62pt}{-62.68pt}}{\pgfpoint{531.16pt}{-78.12pt}}{\pgfpoint{528pt}{-111.75pt}}
-\pgfpathcurveto{\pgfpoint{530.4pt}{-134.66pt}}{\pgfpoint{517.17pt}{-144.49pt}}{\pgfpoint{496.75pt}{-143pt}}
-\pgfpathcurveto{\pgfpoint{372.9pt}{-141.71pt}}{\pgfpoint{250.31pt}{-139.83pt}}{\pgfpoint{49.25pt}{-143pt}}
-\pgfpathcurveto{\pgfpoint{29.58pt}{-142.87pt}}{\pgfpoint{15.8pt}{-129.88pt}}{\pgfpoint{18pt}{-111.75pt}}
-\pgfpathcurveto{\pgfpoint{15.19pt}{-93.68pt}}{\pgfpoint{15.73pt}{-81.19pt}}{\pgfpoint{18pt}{-49.25pt}}
-\pgfpathcurveto{\pgfpoint{17.17pt}{-26.87pt}}{\pgfpoint{26.16pt}{-15.38pt}}{\pgfpoint{49.25pt}{-18pt}}
-\pgfusepath{fill}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{49.25pt}{-18pt}}
-\pgfpathcurveto{\pgfpoint{211.96pt}{-16.85pt}}{\pgfpoint{375.18pt}{-16.89pt}}{\pgfpoint{496.75pt}{-18pt}}
-\pgfpathmoveto{\pgfpoint{49.25pt}{-18pt}}
-\pgfpathcurveto{\pgfpoint{147.05pt}{-16.66pt}}{\pgfpoint{244.99pt}{-16.64pt}}{\pgfpoint{496.75pt}{-18pt}}
-\pgfpathmoveto{\pgfpoint{496.75pt}{-18pt}}
-\pgfpathcurveto{\pgfpoint{517.21pt}{-18.83pt}}{\pgfpoint{529.39pt}{-28.64pt}}{\pgfpoint{528pt}{-49.25pt}}
-\pgfpathmoveto{\pgfpoint{496.75pt}{-18pt}}
-\pgfpathcurveto{\pgfpoint{518.04pt}{-18.03pt}}{\pgfpoint{529.36pt}{-28.25pt}}{\pgfpoint{528pt}{-49.25pt}}
-\pgfpathmoveto{\pgfpoint{528pt}{-49.25pt}}
-\pgfpathcurveto{\pgfpoint{528.38pt}{-63.52pt}}{\pgfpoint{527.04pt}{-75.92pt}}{\pgfpoint{528pt}{-111.75pt}}
-\pgfpathmoveto{\pgfpoint{528pt}{-49.25pt}}
-\pgfpathcurveto{\pgfpoint{528.54pt}{-70.55pt}}{\pgfpoint{528.26pt}{-91.08pt}}{\pgfpoint{528pt}{-111.75pt}}
-\pgfpathmoveto{\pgfpoint{528pt}{-111.75pt}}
-\pgfpathcurveto{\pgfpoint{527.49pt}{-132.42pt}}{\pgfpoint{517.92pt}{-144.21pt}}{\pgfpoint{496.75pt}{-143pt}}
-\pgfpathmoveto{\pgfpoint{528pt}{-111.75pt}}
-\pgfpathcurveto{\pgfpoint{529.41pt}{-133.11pt}}{\pgfpoint{518.84pt}{-142.18pt}}{\pgfpoint{496.75pt}{-143pt}}
-\pgfpathmoveto{\pgfpoint{496.75pt}{-143pt}}
-\pgfpathcurveto{\pgfpoint{319.75pt}{-143.34pt}}{\pgfpoint{143.63pt}{-143.2pt}}{\pgfpoint{49.25pt}{-143pt}}
-\pgfpathmoveto{\pgfpoint{496.75pt}{-143pt}}
-\pgfpathcurveto{\pgfpoint{323.6pt}{-143.66pt}}{\pgfpoint{150.31pt}{-144.03pt}}{\pgfpoint{49.25pt}{-143pt}}
-\pgfpathmoveto{\pgfpoint{49.25pt}{-143pt}}
-\pgfpathcurveto{\pgfpoint{27.96pt}{-144.26pt}}{\pgfpoint{17.43pt}{-131.66pt}}{\pgfpoint{18pt}{-111.75pt}}
-\pgfpathmoveto{\pgfpoint{49.25pt}{-143pt}}
-\pgfpathcurveto{\pgfpoint{28.9pt}{-144.39pt}}{\pgfpoint{16.73pt}{-134.18pt}}{\pgfpoint{18pt}{-111.75pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-111.75pt}}
-\pgfpathcurveto{\pgfpoint{19.55pt}{-92.86pt}}{\pgfpoint{17.44pt}{-73.1pt}}{\pgfpoint{18pt}{-49.25pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-111.75pt}}
-\pgfpathcurveto{\pgfpoint{17.95pt}{-89.38pt}}{\pgfpoint{17.37pt}{-66.77pt}}{\pgfpoint{18pt}{-49.25pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-49.25pt}}
-\pgfpathcurveto{\pgfpoint{17.28pt}{-29.64pt}}{\pgfpoint{27.3pt}{-18.06pt}}{\pgfpoint{49.25pt}{-18pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-49.25pt}}
-\pgfpathcurveto{\pgfpoint{16.84pt}{-28.81pt}}{\pgfpoint{27.56pt}{-18.19pt}}{\pgfpoint{49.25pt}{-18pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor1,font={\fontfamily{phv}\fontsize{30}{36}\selectfont}] at (273,-62.10059) {Demand owners \& sponsors};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor4,font={\fontfamily{phv}\fontsize{25}{30}\selectfont}] at (273,-99.75049) {Define objectives; commit funds};
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetfillcolor{mapcolor6}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{889.25pt}{-18pt}}
-\pgfpathcurveto{\pgfpoint{967.75pt}{-16.76pt}}{\pgfpoint{1049.77pt}{-17.17pt}}{\pgfpoint{1286.75pt}{-18pt}}
-\pgfpathcurveto{\pgfpoint{1308.04pt}{-20.51pt}}{\pgfpoint{1318.49pt}{-26.99pt}}{\pgfpoint{1318pt}{-49.25pt}}
-\pgfpathcurveto{\pgfpoint{1316.25pt}{-71.28pt}}{\pgfpoint{1316.3pt}{-97.32pt}}{\pgfpoint{1318pt}{-111.75pt}}
-\pgfpathcurveto{\pgfpoint{1317.73pt}{-133.94pt}}{\pgfpoint{1309.72pt}{-142.42pt}}{\pgfpoint{1286.75pt}{-143pt}}
-\pgfpathcurveto{\pgfpoint{1173.23pt}{-139.61pt}}{\pgfpoint{1061.56pt}{-139.13pt}}{\pgfpoint{889.25pt}{-143pt}}
-\pgfpathcurveto{\pgfpoint{871.13pt}{-144.92pt}}{\pgfpoint{859.7pt}{-132.85pt}}{\pgfpoint{858pt}{-111.75pt}}
-\pgfpathcurveto{\pgfpoint{858.7pt}{-88.54pt}}{\pgfpoint{855.52pt}{-64pt}}{\pgfpoint{858pt}{-49.25pt}}
-\pgfpathcurveto{\pgfpoint{859.67pt}{-27.97pt}}{\pgfpoint{867.34pt}{-17.19pt}}{\pgfpoint{889.25pt}{-18pt}}
-\pgfusepath{fill}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor2}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{889.25pt}{-18pt}}
-\pgfpathcurveto{\pgfpoint{1033.88pt}{-17.72pt}}{\pgfpoint{1179.07pt}{-18.01pt}}{\pgfpoint{1286.75pt}{-18pt}}
-\pgfpathmoveto{\pgfpoint{889.25pt}{-18pt}}
-\pgfpathcurveto{\pgfpoint{982.32pt}{-17.15pt}}{\pgfpoint{1075.23pt}{-16.99pt}}{\pgfpoint{1286.75pt}{-18pt}}
-\pgfpathmoveto{\pgfpoint{1286.75pt}{-18pt}}
-\pgfpathcurveto{\pgfpoint{1308.69pt}{-18.54pt}}{\pgfpoint{1317.04pt}{-27.86pt}}{\pgfpoint{1318pt}{-49.25pt}}
-\pgfpathmoveto{\pgfpoint{1286.75pt}{-18pt}}
-\pgfpathcurveto{\pgfpoint{1306.84pt}{-17.6pt}}{\pgfpoint{1318.16pt}{-27.05pt}}{\pgfpoint{1318pt}{-49.25pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-49.25pt}}
-\pgfpathcurveto{\pgfpoint{1317.24pt}{-64.53pt}}{\pgfpoint{1317.78pt}{-83.67pt}}{\pgfpoint{1318pt}{-111.75pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-49.25pt}}
-\pgfpathcurveto{\pgfpoint{1317.69pt}{-68.63pt}}{\pgfpoint{1317.59pt}{-86.61pt}}{\pgfpoint{1318pt}{-111.75pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-111.75pt}}
-\pgfpathcurveto{\pgfpoint{1317.34pt}{-133.26pt}}{\pgfpoint{1307.53pt}{-142pt}}{\pgfpoint{1286.75pt}{-143pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-111.75pt}}
-\pgfpathcurveto{\pgfpoint{1317.47pt}{-131.63pt}}{\pgfpoint{1305.98pt}{-142.27pt}}{\pgfpoint{1286.75pt}{-143pt}}
-\pgfpathmoveto{\pgfpoint{1286.75pt}{-143pt}}
-\pgfpathcurveto{\pgfpoint{1190.68pt}{-142.33pt}}{\pgfpoint{1095.14pt}{-142.19pt}}{\pgfpoint{889.25pt}{-143pt}}
-\pgfpathmoveto{\pgfpoint{1286.75pt}{-143pt}}
-\pgfpathcurveto{\pgfpoint{1193.75pt}{-143.79pt}}{\pgfpoint{1100.38pt}{-143.45pt}}{\pgfpoint{889.25pt}{-143pt}}
-\pgfpathmoveto{\pgfpoint{889.25pt}{-143pt}}
-\pgfpathcurveto{\pgfpoint{868.19pt}{-142.25pt}}{\pgfpoint{858.46pt}{-131.37pt}}{\pgfpoint{858pt}{-111.75pt}}
-\pgfpathmoveto{\pgfpoint{889.25pt}{-143pt}}
-\pgfpathcurveto{\pgfpoint{867.92pt}{-142.75pt}}{\pgfpoint{856.44pt}{-132.78pt}}{\pgfpoint{858pt}{-111.75pt}}
-\pgfpathmoveto{\pgfpoint{858pt}{-111.75pt}}
-\pgfpathcurveto{\pgfpoint{858.92pt}{-89.89pt}}{\pgfpoint{858.18pt}{-66.54pt}}{\pgfpoint{858pt}{-49.25pt}}
-\pgfpathmoveto{\pgfpoint{858pt}{-111.75pt}}
-\pgfpathcurveto{\pgfpoint{857.7pt}{-88.19pt}}{\pgfpoint{858.28pt}{-63.8pt}}{\pgfpoint{858pt}{-49.25pt}}
-\pgfpathmoveto{\pgfpoint{858pt}{-49.25pt}}
-\pgfpathcurveto{\pgfpoint{856.79pt}{-29.63pt}}{\pgfpoint{868.24pt}{-16.71pt}}{\pgfpoint{889.25pt}{-18pt}}
-\pgfpathmoveto{\pgfpoint{858pt}{-49.25pt}}
-\pgfpathcurveto{\pgfpoint{857.14pt}{-29.29pt}}{\pgfpoint{868.08pt}{-18.13pt}}{\pgfpoint{889.25pt}{-18pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor2,font={\fontfamily{phv}\fontsize{30}{36}\selectfont}] at (1088,-62.10059) {Information providers};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor4,font={\fontfamily{phv}\fontsize{25}{30}\selectfont}] at (1088,-99.75049) {Experts, forecasts, local evidence};
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetfillcolor{mapcolor7}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{49.25pt}{-263pt}}
-\pgfpathcurveto{\pgfpoint{167.4pt}{-262.13pt}}{\pgfpoint{284.05pt}{-261.04pt}}{\pgfpoint{496.75pt}{-263pt}}
-\pgfpathcurveto{\pgfpoint{515.93pt}{-261.73pt}}{\pgfpoint{526.56pt}{-271.88pt}}{\pgfpoint{528pt}{-294.25pt}}
-\pgfpathcurveto{\pgfpoint{530.88pt}{-318.38pt}}{\pgfpoint{527.44pt}{-342.53pt}}{\pgfpoint{528pt}{-356.75pt}}
-\pgfpathcurveto{\pgfpoint{525.07pt}{-378.21pt}}{\pgfpoint{516.28pt}{-385.35pt}}{\pgfpoint{496.75pt}{-388pt}}
-\pgfpathcurveto{\pgfpoint{368.5pt}{-389.33pt}}{\pgfpoint{239.24pt}{-390.38pt}}{\pgfpoint{49.25pt}{-388pt}}
-\pgfpathcurveto{\pgfpoint{26.67pt}{-385.97pt}}{\pgfpoint{17.6pt}{-374.83pt}}{\pgfpoint{18pt}{-356.75pt}}
-\pgfpathcurveto{\pgfpoint{16.21pt}{-340.9pt}}{\pgfpoint{15.32pt}{-316.81pt}}{\pgfpoint{18pt}{-294.25pt}}
-\pgfpathcurveto{\pgfpoint{16.18pt}{-274.08pt}}{\pgfpoint{28.52pt}{-264pt}}{\pgfpoint{49.25pt}{-263pt}}
-\pgfusepath{fill}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{49.25pt}{-263pt}}
-\pgfpathcurveto{\pgfpoint{212.36pt}{-263.65pt}}{\pgfpoint{375.91pt}{-264.1pt}}{\pgfpoint{496.75pt}{-263pt}}
-\pgfpathmoveto{\pgfpoint{49.25pt}{-263pt}}
-\pgfpathcurveto{\pgfpoint{161.07pt}{-262.68pt}}{\pgfpoint{273.13pt}{-262.43pt}}{\pgfpoint{496.75pt}{-263pt}}
-\pgfpathmoveto{\pgfpoint{496.75pt}{-263pt}}
-\pgfpathcurveto{\pgfpoint{517.37pt}{-263.25pt}}{\pgfpoint{527.49pt}{-272.08pt}}{\pgfpoint{528pt}{-294.25pt}}
-\pgfpathmoveto{\pgfpoint{496.75pt}{-263pt}}
-\pgfpathcurveto{\pgfpoint{518.87pt}{-262.16pt}}{\pgfpoint{526.97pt}{-274.08pt}}{\pgfpoint{528pt}{-294.25pt}}
-\pgfpathmoveto{\pgfpoint{528pt}{-294.25pt}}
-\pgfpathcurveto{\pgfpoint{528.9pt}{-313.34pt}}{\pgfpoint{528.52pt}{-333.62pt}}{\pgfpoint{528pt}{-356.75pt}}
-\pgfpathmoveto{\pgfpoint{528pt}{-294.25pt}}
-\pgfpathcurveto{\pgfpoint{527.71pt}{-311.7pt}}{\pgfpoint{527.78pt}{-328.54pt}}{\pgfpoint{528pt}{-356.75pt}}
-\pgfpathmoveto{\pgfpoint{528pt}{-356.75pt}}
-\pgfpathcurveto{\pgfpoint{527.2pt}{-376.3pt}}{\pgfpoint{517.15pt}{-387.59pt}}{\pgfpoint{496.75pt}{-388pt}}
-\pgfpathmoveto{\pgfpoint{528pt}{-356.75pt}}
-\pgfpathcurveto{\pgfpoint{528.75pt}{-378.37pt}}{\pgfpoint{516.33pt}{-387.36pt}}{\pgfpoint{496.75pt}{-388pt}}
-\pgfpathmoveto{\pgfpoint{496.75pt}{-388pt}}
-\pgfpathcurveto{\pgfpoint{367.96pt}{-387.81pt}}{\pgfpoint{237.84pt}{-387.71pt}}{\pgfpoint{49.25pt}{-388pt}}
-\pgfpathmoveto{\pgfpoint{496.75pt}{-388pt}}
-\pgfpathcurveto{\pgfpoint{370.89pt}{-388.1pt}}{\pgfpoint{244.55pt}{-387.83pt}}{\pgfpoint{49.25pt}{-388pt}}
-\pgfpathmoveto{\pgfpoint{49.25pt}{-388pt}}
-\pgfpathcurveto{\pgfpoint{28.43pt}{-388.05pt}}{\pgfpoint{16.69pt}{-378.88pt}}{\pgfpoint{18pt}{-356.75pt}}
-\pgfpathmoveto{\pgfpoint{49.25pt}{-388pt}}
-\pgfpathcurveto{\pgfpoint{26.93pt}{-389.32pt}}{\pgfpoint{19.36pt}{-376.37pt}}{\pgfpoint{18pt}{-356.75pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-356.75pt}}
-\pgfpathcurveto{\pgfpoint{19.17pt}{-341.62pt}}{\pgfpoint{16.98pt}{-329.98pt}}{\pgfpoint{18pt}{-294.25pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-356.75pt}}
-\pgfpathcurveto{\pgfpoint{18.86pt}{-343.1pt}}{\pgfpoint{17.79pt}{-329.43pt}}{\pgfpoint{18pt}{-294.25pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-294.25pt}}
-\pgfpathcurveto{\pgfpoint{19.11pt}{-274.62pt}}{\pgfpoint{29.18pt}{-263.16pt}}{\pgfpoint{49.25pt}{-263pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-294.25pt}}
-\pgfpathcurveto{\pgfpoint{17.45pt}{-274.77pt}}{\pgfpoint{28.6pt}{-263.08pt}}{\pgfpoint{49.25pt}{-263pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor3,font={\fontfamily{phv}\fontsize{30}{36}\selectfont}] at (273,-307.10059) {Coordinators / curators};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor4,font={\fontfamily{phv}\fontsize{25}{30}\selectfont}] at (273,-344.75049) {Canonical tasks; dependency graph};
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetfillcolor{mapcolor5}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{889.25pt}{-263pt}}
-\pgfpathcurveto{\pgfpoint{1017.87pt}{-266pt}}{\pgfpoint{1146.3pt}{-266.44pt}}{\pgfpoint{1286.75pt}{-263pt}}
-\pgfpathcurveto{\pgfpoint{1309.83pt}{-263.94pt}}{\pgfpoint{1320.63pt}{-271.77pt}}{\pgfpoint{1318pt}{-294.25pt}}
-\pgfpathcurveto{\pgfpoint{1319.51pt}{-314.48pt}}{\pgfpoint{1318.58pt}{-336.74pt}}{\pgfpoint{1318pt}{-356.75pt}}
-\pgfpathcurveto{\pgfpoint{1318.4pt}{-377.49pt}}{\pgfpoint{1308.84pt}{-389.27pt}}{\pgfpoint{1286.75pt}{-388pt}}
-\pgfpathcurveto{\pgfpoint{1169.66pt}{-387.16pt}}{\pgfpoint{1051.76pt}{-390.1pt}}{\pgfpoint{889.25pt}{-388pt}}
-\pgfpathcurveto{\pgfpoint{868.22pt}{-388.01pt}}{\pgfpoint{855.5pt}{-377.8pt}}{\pgfpoint{858pt}{-356.75pt}}
-\pgfpathcurveto{\pgfpoint{859.72pt}{-342.26pt}}{\pgfpoint{855.12pt}{-330.63pt}}{\pgfpoint{858pt}{-294.25pt}}
-\pgfpathcurveto{\pgfpoint{858.68pt}{-275.19pt}}{\pgfpoint{869.71pt}{-265.81pt}}{\pgfpoint{889.25pt}{-263pt}}
-\pgfusepath{fill}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{889.25pt}{-263pt}}
-\pgfpathcurveto{\pgfpoint{1034.35pt}{-264.68pt}}{\pgfpoint{1179.92pt}{-263.85pt}}{\pgfpoint{1286.75pt}{-263pt}}
-\pgfpathmoveto{\pgfpoint{889.25pt}{-263pt}}
-\pgfpathcurveto{\pgfpoint{995.5pt}{-262.46pt}}{\pgfpoint{1100.89pt}{-262.83pt}}{\pgfpoint{1286.75pt}{-263pt}}
-\pgfpathmoveto{\pgfpoint{1286.75pt}{-263pt}}
-\pgfpathcurveto{\pgfpoint{1308.84pt}{-262.96pt}}{\pgfpoint{1317.93pt}{-274.1pt}}{\pgfpoint{1318pt}{-294.25pt}}
-\pgfpathmoveto{\pgfpoint{1286.75pt}{-263pt}}
-\pgfpathcurveto{\pgfpoint{1307.68pt}{-261.73pt}}{\pgfpoint{1319pt}{-272.89pt}}{\pgfpoint{1318pt}{-294.25pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-294.25pt}}
-\pgfpathcurveto{\pgfpoint{1317.76pt}{-317.15pt}}{\pgfpoint{1316.46pt}{-341.36pt}}{\pgfpoint{1318pt}{-356.75pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-294.25pt}}
-\pgfpathcurveto{\pgfpoint{1317.73pt}{-309.77pt}}{\pgfpoint{1317.98pt}{-324.07pt}}{\pgfpoint{1318pt}{-356.75pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-356.75pt}}
-\pgfpathcurveto{\pgfpoint{1317.05pt}{-377.15pt}}{\pgfpoint{1306.77pt}{-388.17pt}}{\pgfpoint{1286.75pt}{-388pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-356.75pt}}
-\pgfpathcurveto{\pgfpoint{1316.82pt}{-376.89pt}}{\pgfpoint{1306.69pt}{-387.45pt}}{\pgfpoint{1286.75pt}{-388pt}}
-\pgfpathmoveto{\pgfpoint{1286.75pt}{-388pt}}
-\pgfpathcurveto{\pgfpoint{1152.63pt}{-388.32pt}}{\pgfpoint{1019.66pt}{-388.22pt}}{\pgfpoint{889.25pt}{-388pt}}
-\pgfpathmoveto{\pgfpoint{1286.75pt}{-388pt}}
-\pgfpathcurveto{\pgfpoint{1155.53pt}{-387.43pt}}{\pgfpoint{1025.15pt}{-387.94pt}}{\pgfpoint{889.25pt}{-388pt}}
-\pgfpathmoveto{\pgfpoint{889.25pt}{-388pt}}
-\pgfpathcurveto{\pgfpoint{868.67pt}{-388.84pt}}{\pgfpoint{857.72pt}{-378.58pt}}{\pgfpoint{858pt}{-356.75pt}}
-\pgfpathmoveto{\pgfpoint{889.25pt}{-388pt}}
-\pgfpathcurveto{\pgfpoint{869.17pt}{-387.67pt}}{\pgfpoint{859.07pt}{-378.18pt}}{\pgfpoint{858pt}{-356.75pt}}
-\pgfpathmoveto{\pgfpoint{858pt}{-356.75pt}}
-\pgfpathcurveto{\pgfpoint{858.54pt}{-338.66pt}}{\pgfpoint{857.72pt}{-320.61pt}}{\pgfpoint{858pt}{-294.25pt}}
-\pgfpathmoveto{\pgfpoint{858pt}{-356.75pt}}
-\pgfpathcurveto{\pgfpoint{857.74pt}{-341.91pt}}{\pgfpoint{857.83pt}{-326.46pt}}{\pgfpoint{858pt}{-294.25pt}}
-\pgfpathmoveto{\pgfpoint{858pt}{-294.25pt}}
-\pgfpathcurveto{\pgfpoint{858.63pt}{-274.61pt}}{\pgfpoint{867.33pt}{-261.82pt}}{\pgfpoint{889.25pt}{-263pt}}
-\pgfpathmoveto{\pgfpoint{858pt}{-294.25pt}}
-\pgfpathcurveto{\pgfpoint{857.76pt}{-272.03pt}}{\pgfpoint{869.12pt}{-263.02pt}}{\pgfpoint{889.25pt}{-263pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor1,font={\fontfamily{phv}\fontsize{30}{36}\selectfont}] at (1088,-307.10059) {Investors};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor4,font={\fontfamily{phv}\fontsize{25}{30}\selectfont}] at (1088,-344.75049) {Allocate risk capital; form beliefs};
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetfillcolor{mapcolor7}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{389.25pt}{-503pt}}
-\pgfpathcurveto{\pgfpoint{575.45pt}{-503.22pt}}{\pgfpoint{760.14pt}{-504.82pt}}{\pgfpoint{876.75pt}{-503pt}}
-\pgfpathcurveto{\pgfpoint{897.72pt}{-500.15pt}}{\pgfpoint{908.69pt}{-511.66pt}}{\pgfpoint{908pt}{-534.25pt}}
-\pgfpathcurveto{\pgfpoint{908.14pt}{-556.58pt}}{\pgfpoint{909.72pt}{-576.94pt}}{\pgfpoint{908pt}{-596.75pt}}
-\pgfpathcurveto{\pgfpoint{905.74pt}{-616.76pt}}{\pgfpoint{895.39pt}{-627.2pt}}{\pgfpoint{876.75pt}{-628pt}}
-\pgfpathcurveto{\pgfpoint{729.19pt}{-628.26pt}}{\pgfpoint{583.83pt}{-626.64pt}}{\pgfpoint{389.25pt}{-628pt}}
-\pgfpathcurveto{\pgfpoint{369.76pt}{-630.06pt}}{\pgfpoint{359.4pt}{-614.78pt}}{\pgfpoint{358pt}{-596.75pt}}
-\pgfpathcurveto{\pgfpoint{357.22pt}{-577.13pt}}{\pgfpoint{354.91pt}{-553.44pt}}{\pgfpoint{358pt}{-534.25pt}}
-\pgfpathcurveto{\pgfpoint{355.18pt}{-516.29pt}}{\pgfpoint{370.89pt}{-501.62pt}}{\pgfpoint{389.25pt}{-503pt}}
-\pgfusepath{fill}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{389.25pt}{-503pt}}
-\pgfpathcurveto{\pgfpoint{567.31pt}{-501.2pt}}{\pgfpoint{744.51pt}{-501.94pt}}{\pgfpoint{876.75pt}{-503pt}}
-\pgfpathmoveto{\pgfpoint{389.25pt}{-503pt}}
-\pgfpathcurveto{\pgfpoint{527.04pt}{-503.01pt}}{\pgfpoint{664.54pt}{-503.18pt}}{\pgfpoint{876.75pt}{-503pt}}
-\pgfpathmoveto{\pgfpoint{876.75pt}{-503pt}}
-\pgfpathcurveto{\pgfpoint{897.52pt}{-502.68pt}}{\pgfpoint{908.38pt}{-513.31pt}}{\pgfpoint{908pt}{-534.25pt}}
-\pgfpathmoveto{\pgfpoint{876.75pt}{-503pt}}
-\pgfpathcurveto{\pgfpoint{896.49pt}{-504.52pt}}{\pgfpoint{907.8pt}{-514.91pt}}{\pgfpoint{908pt}{-534.25pt}}
-\pgfpathmoveto{\pgfpoint{908pt}{-534.25pt}}
-\pgfpathcurveto{\pgfpoint{906.62pt}{-548.45pt}}{\pgfpoint{907.2pt}{-561.31pt}}{\pgfpoint{908pt}{-596.75pt}}
-\pgfpathmoveto{\pgfpoint{908pt}{-534.25pt}}
-\pgfpathcurveto{\pgfpoint{907.75pt}{-546.44pt}}{\pgfpoint{908.18pt}{-559.6pt}}{\pgfpoint{908pt}{-596.75pt}}
-\pgfpathmoveto{\pgfpoint{908pt}{-596.75pt}}
-\pgfpathcurveto{\pgfpoint{906.9pt}{-617.99pt}}{\pgfpoint{896.38pt}{-628.76pt}}{\pgfpoint{876.75pt}{-628pt}}
-\pgfpathmoveto{\pgfpoint{908pt}{-596.75pt}}
-\pgfpathcurveto{\pgfpoint{908.1pt}{-618.64pt}}{\pgfpoint{897.04pt}{-627.54pt}}{\pgfpoint{876.75pt}{-628pt}}
-\pgfpathmoveto{\pgfpoint{876.75pt}{-628pt}}
-\pgfpathcurveto{\pgfpoint{690.03pt}{-627.33pt}}{\pgfpoint{503.8pt}{-627.28pt}}{\pgfpoint{389.25pt}{-628pt}}
-\pgfpathmoveto{\pgfpoint{876.75pt}{-628pt}}
-\pgfpathcurveto{\pgfpoint{692.94pt}{-627.54pt}}{\pgfpoint{509.6pt}{-627.35pt}}{\pgfpoint{389.25pt}{-628pt}}
-\pgfpathmoveto{\pgfpoint{389.25pt}{-628pt}}
-\pgfpathcurveto{\pgfpoint{368.91pt}{-626.84pt}}{\pgfpoint{358.75pt}{-618.29pt}}{\pgfpoint{358pt}{-596.75pt}}
-\pgfpathmoveto{\pgfpoint{389.25pt}{-628pt}}
-\pgfpathcurveto{\pgfpoint{368.18pt}{-629.24pt}}{\pgfpoint{358.77pt}{-616.77pt}}{\pgfpoint{358pt}{-596.75pt}}
-\pgfpathmoveto{\pgfpoint{358pt}{-596.75pt}}
-\pgfpathcurveto{\pgfpoint{358.79pt}{-575.69pt}}{\pgfpoint{359.32pt}{-554.05pt}}{\pgfpoint{358pt}{-534.25pt}}
-\pgfpathmoveto{\pgfpoint{358pt}{-596.75pt}}
-\pgfpathcurveto{\pgfpoint{357.49pt}{-579.32pt}}{\pgfpoint{358.74pt}{-562.09pt}}{\pgfpoint{358pt}{-534.25pt}}
-\pgfpathmoveto{\pgfpoint{358pt}{-534.25pt}}
-\pgfpathcurveto{\pgfpoint{358.14pt}{-514.61pt}}{\pgfpoint{368.27pt}{-503.27pt}}{\pgfpoint{389.25pt}{-503pt}}
-\pgfpathmoveto{\pgfpoint{358pt}{-534.25pt}}
-\pgfpathcurveto{\pgfpoint{358.07pt}{-512.51pt}}{\pgfpoint{369.63pt}{-502.96pt}}{\pgfpoint{389.25pt}{-503pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor3,font={\fontfamily{phv}\fontsize{30}{36}\selectfont}] at (633,-547.10059) {Solvers: humans + agents};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor4,font={\fontfamily{phv}\fontsize{25}{30}\selectfont}] at (633,-584.75049) {Search, formalize, collaborate};
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetfillcolor{mapcolor8}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{1029.25pt}{-503pt}}
-\pgfpathcurveto{\pgfpoint{1091.22pt}{-503.91pt}}{\pgfpoint{1152.52pt}{-504.57pt}}{\pgfpoint{1286.75pt}{-503pt}}
-\pgfpathcurveto{\pgfpoint{1305.62pt}{-502.37pt}}{\pgfpoint{1316.76pt}{-511.54pt}}{\pgfpoint{1318pt}{-534.25pt}}
-\pgfpathcurveto{\pgfpoint{1318.64pt}{-552.69pt}}{\pgfpoint{1316.74pt}{-571.15pt}}{\pgfpoint{1318pt}{-596.75pt}}
-\pgfpathcurveto{\pgfpoint{1319.07pt}{-616.04pt}}{\pgfpoint{1307.95pt}{-625.13pt}}{\pgfpoint{1286.75pt}{-628pt}}
-\pgfpathcurveto{\pgfpoint{1205.1pt}{-626.53pt}}{\pgfpoint{1128.2pt}{-625.85pt}}{\pgfpoint{1029.25pt}{-628pt}}
-\pgfpathcurveto{\pgfpoint{1011.31pt}{-626.11pt}}{\pgfpoint{997.3pt}{-617.75pt}}{\pgfpoint{998pt}{-596.75pt}}
-\pgfpathcurveto{\pgfpoint{1000.73pt}{-578.49pt}}{\pgfpoint{1000.71pt}{-561.25pt}}{\pgfpoint{998pt}{-534.25pt}}
-\pgfpathcurveto{\pgfpoint{997.68pt}{-511.4pt}}{\pgfpoint{1006.07pt}{-503.42pt}}{\pgfpoint{1029.25pt}{-503pt}}
-\pgfusepath{fill}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor4}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{1029.25pt}{-503pt}}
-\pgfpathcurveto{\pgfpoint{1124pt}{-501.79pt}}{\pgfpoint{1217.06pt}{-501.3pt}}{\pgfpoint{1286.75pt}{-503pt}}
-\pgfpathmoveto{\pgfpoint{1029.25pt}{-503pt}}
-\pgfpathcurveto{\pgfpoint{1106.13pt}{-503.67pt}}{\pgfpoint{1183.08pt}{-503.8pt}}{\pgfpoint{1286.75pt}{-503pt}}
-\pgfpathmoveto{\pgfpoint{1286.75pt}{-503pt}}
-\pgfpathcurveto{\pgfpoint{1306.19pt}{-502.39pt}}{\pgfpoint{1318.82pt}{-512.53pt}}{\pgfpoint{1318pt}{-534.25pt}}
-\pgfpathmoveto{\pgfpoint{1286.75pt}{-503pt}}
-\pgfpathcurveto{\pgfpoint{1308.51pt}{-504.09pt}}{\pgfpoint{1316.61pt}{-513.72pt}}{\pgfpoint{1318pt}{-534.25pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-534.25pt}}
-\pgfpathcurveto{\pgfpoint{1319.15pt}{-552.26pt}}{\pgfpoint{1318.81pt}{-569.06pt}}{\pgfpoint{1318pt}{-596.75pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-534.25pt}}
-\pgfpathcurveto{\pgfpoint{1318.3pt}{-557.01pt}}{\pgfpoint{1317.5pt}{-581.53pt}}{\pgfpoint{1318pt}{-596.75pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-596.75pt}}
-\pgfpathcurveto{\pgfpoint{1316.75pt}{-618.83pt}}{\pgfpoint{1308.8pt}{-629.35pt}}{\pgfpoint{1286.75pt}{-628pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-596.75pt}}
-\pgfpathcurveto{\pgfpoint{1319.38pt}{-617.16pt}}{\pgfpoint{1307.4pt}{-627.63pt}}{\pgfpoint{1286.75pt}{-628pt}}
-\pgfpathmoveto{\pgfpoint{1286.75pt}{-628pt}}
-\pgfpathcurveto{\pgfpoint{1227.91pt}{-627.86pt}}{\pgfpoint{1169.32pt}{-627.8pt}}{\pgfpoint{1029.25pt}{-628pt}}
-\pgfpathmoveto{\pgfpoint{1286.75pt}{-628pt}}
-\pgfpathcurveto{\pgfpoint{1229.03pt}{-626.99pt}}{\pgfpoint{1170.8pt}{-626.66pt}}{\pgfpoint{1029.25pt}{-628pt}}
-\pgfpathmoveto{\pgfpoint{1029.25pt}{-628pt}}
-\pgfpathcurveto{\pgfpoint{1009.14pt}{-627.64pt}}{\pgfpoint{996.98pt}{-618pt}}{\pgfpoint{998pt}{-596.75pt}}
-\pgfpathmoveto{\pgfpoint{1029.25pt}{-628pt}}
-\pgfpathcurveto{\pgfpoint{1007.2pt}{-627.6pt}}{\pgfpoint{998.48pt}{-618.58pt}}{\pgfpoint{998pt}{-596.75pt}}
-\pgfpathmoveto{\pgfpoint{998pt}{-596.75pt}}
-\pgfpathcurveto{\pgfpoint{999.03pt}{-585.22pt}}{\pgfpoint{998.13pt}{-569.69pt}}{\pgfpoint{998pt}{-534.25pt}}
-\pgfpathmoveto{\pgfpoint{998pt}{-596.75pt}}
-\pgfpathcurveto{\pgfpoint{998.64pt}{-578.13pt}}{\pgfpoint{998.25pt}{-559.13pt}}{\pgfpoint{998pt}{-534.25pt}}
-\pgfpathmoveto{\pgfpoint{998pt}{-534.25pt}}
-\pgfpathcurveto{\pgfpoint{997.66pt}{-514.6pt}}{\pgfpoint{1009.21pt}{-501.92pt}}{\pgfpoint{1029.25pt}{-503pt}}
-\pgfpathmoveto{\pgfpoint{998pt}{-534.25pt}}
-\pgfpathcurveto{\pgfpoint{998.37pt}{-512.99pt}}{\pgfpoint{1006.93pt}{-502.9pt}}{\pgfpoint{1029.25pt}{-503pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor4,font={\fontfamily{phv}\fontsize{30}{36}\selectfont}] at (1158,-547.10059) {Compute suppliers};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor4,font={\fontfamily{phv}\fontsize{25}{30}\selectfont}] at (1158,-584.75049) {Metered execution};
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetfillcolor{mapcolor7}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{46.75pt}{-758pt}}
-\pgfpathcurveto{\pgfpoint{182.58pt}{-755.55pt}}{\pgfpoint{319.33pt}{-754.52pt}}{\pgfpoint{499.25pt}{-758pt}}
-\pgfpathcurveto{\pgfpoint{520.35pt}{-759.58pt}}{\pgfpoint{530.83pt}{-765.6pt}}{\pgfpoint{528pt}{-786.75pt}}
-\pgfpathcurveto{\pgfpoint{527.26pt}{-799.94pt}}{\pgfpoint{527.86pt}{-815.16pt}}{\pgfpoint{528pt}{-844.25pt}}
-\pgfpathcurveto{\pgfpoint{526.41pt}{-861.15pt}}{\pgfpoint{521.34pt}{-874.05pt}}{\pgfpoint{499.25pt}{-873pt}}
-\pgfpathcurveto{\pgfpoint{357.7pt}{-869.45pt}}{\pgfpoint{213.54pt}{-870.48pt}}{\pgfpoint{46.75pt}{-873pt}}
-\pgfpathcurveto{\pgfpoint{26.02pt}{-873.16pt}}{\pgfpoint{15.2pt}{-860.56pt}}{\pgfpoint{18pt}{-844.25pt}}
-\pgfpathcurveto{\pgfpoint{18.25pt}{-834.45pt}}{\pgfpoint{20.52pt}{-818.76pt}}{\pgfpoint{18pt}{-786.75pt}}
-\pgfpathcurveto{\pgfpoint{20.18pt}{-766.67pt}}{\pgfpoint{26.43pt}{-760.23pt}}{\pgfpoint{46.75pt}{-758pt}}
-\pgfusepath{fill}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor3}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{46.75pt}{-758pt}}
-\pgfpathcurveto{\pgfpoint{211.14pt}{-757.85pt}}{\pgfpoint{377.16pt}{-757.75pt}}{\pgfpoint{499.25pt}{-758pt}}
-\pgfpathmoveto{\pgfpoint{46.75pt}{-758pt}}
-\pgfpathcurveto{\pgfpoint{188.87pt}{-758.35pt}}{\pgfpoint{331.41pt}{-758.31pt}}{\pgfpoint{499.25pt}{-758pt}}
-\pgfpathmoveto{\pgfpoint{499.25pt}{-758pt}}
-\pgfpathcurveto{\pgfpoint{518.5pt}{-757.1pt}}{\pgfpoint{529.27pt}{-768.72pt}}{\pgfpoint{528pt}{-786.75pt}}
-\pgfpathmoveto{\pgfpoint{499.25pt}{-758pt}}
-\pgfpathcurveto{\pgfpoint{518.15pt}{-758.66pt}}{\pgfpoint{528.64pt}{-766.69pt}}{\pgfpoint{528pt}{-786.75pt}}
-\pgfpathmoveto{\pgfpoint{528pt}{-786.75pt}}
-\pgfpathcurveto{\pgfpoint{527.99pt}{-806.93pt}}{\pgfpoint{529.54pt}{-823.23pt}}{\pgfpoint{528pt}{-844.25pt}}
-\pgfpathmoveto{\pgfpoint{528pt}{-786.75pt}}
-\pgfpathcurveto{\pgfpoint{528.33pt}{-805.87pt}}{\pgfpoint{527.7pt}{-826.13pt}}{\pgfpoint{528pt}{-844.25pt}}
-\pgfpathmoveto{\pgfpoint{528pt}{-844.25pt}}
-\pgfpathcurveto{\pgfpoint{529.4pt}{-862.71pt}}{\pgfpoint{519.25pt}{-872.14pt}}{\pgfpoint{499.25pt}{-873pt}}
-\pgfpathmoveto{\pgfpoint{528pt}{-844.25pt}}
-\pgfpathcurveto{\pgfpoint{527.44pt}{-864.73pt}}{\pgfpoint{518.59pt}{-872.72pt}}{\pgfpoint{499.25pt}{-873pt}}
-\pgfpathmoveto{\pgfpoint{499.25pt}{-873pt}}
-\pgfpathcurveto{\pgfpoint{374.62pt}{-871.75pt}}{\pgfpoint{248.39pt}{-873.08pt}}{\pgfpoint{46.75pt}{-873pt}}
-\pgfpathmoveto{\pgfpoint{499.25pt}{-873pt}}
-\pgfpathcurveto{\pgfpoint{376.43pt}{-871.31pt}}{\pgfpoint{253.13pt}{-871.8pt}}{\pgfpoint{46.75pt}{-873pt}}
-\pgfpathmoveto{\pgfpoint{46.75pt}{-873pt}}
-\pgfpathcurveto{\pgfpoint{28.55pt}{-873.43pt}}{\pgfpoint{18.01pt}{-863.54pt}}{\pgfpoint{18pt}{-844.25pt}}
-\pgfpathmoveto{\pgfpoint{46.75pt}{-873pt}}
-\pgfpathcurveto{\pgfpoint{28.6pt}{-874.17pt}}{\pgfpoint{18.18pt}{-863.01pt}}{\pgfpoint{18pt}{-844.25pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-844.25pt}}
-\pgfpathcurveto{\pgfpoint{18.42pt}{-828.28pt}}{\pgfpoint{18.88pt}{-813.29pt}}{\pgfpoint{18pt}{-786.75pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-844.25pt}}
-\pgfpathcurveto{\pgfpoint{17.53pt}{-824.7pt}}{\pgfpoint{18.3pt}{-805.57pt}}{\pgfpoint{18pt}{-786.75pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-786.75pt}}
-\pgfpathcurveto{\pgfpoint{17.17pt}{-768.76pt}}{\pgfpoint{26.52pt}{-758.38pt}}{\pgfpoint{46.75pt}{-758pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-786.75pt}}
-\pgfpathcurveto{\pgfpoint{18.68pt}{-767.64pt}}{\pgfpoint{26.62pt}{-757.85pt}}{\pgfpoint{46.75pt}{-758pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor3,font={\fontfamily{phv}\fontsize{30}{36}\selectfont}] at (273,-802.10059) {Verifiers};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor4,font={\fontfamily{phv}\fontsize{25}{30}\selectfont}] at (273,-839.75049) {Check exact statements + proofs};
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetfillcolor{mapcolor5}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{806.75pt}{-758pt}}
-\pgfpathcurveto{\pgfpoint{980.23pt}{-759.31pt}}{\pgfpoint{1155.73pt}{-759.69pt}}{\pgfpoint{1289.25pt}{-758pt}}
-\pgfpathcurveto{\pgfpoint{1308.25pt}{-755.79pt}}{\pgfpoint{1318.9pt}{-765.49pt}}{\pgfpoint{1318pt}{-786.75pt}}
-\pgfpathcurveto{\pgfpoint{1315.92pt}{-802.16pt}}{\pgfpoint{1319.04pt}{-815.61pt}}{\pgfpoint{1318pt}{-844.25pt}}
-\pgfpathcurveto{\pgfpoint{1319.74pt}{-860.42pt}}{\pgfpoint{1307.9pt}{-871.98pt}}{\pgfpoint{1289.25pt}{-873pt}}
-\pgfpathcurveto{\pgfpoint{1134.42pt}{-874.05pt}}{\pgfpoint{980.13pt}{-876.26pt}}{\pgfpoint{806.75pt}{-873pt}}
-\pgfpathcurveto{\pgfpoint{787.57pt}{-875.21pt}}{\pgfpoint{779.1pt}{-863.54pt}}{\pgfpoint{778pt}{-844.25pt}}
-\pgfpathcurveto{\pgfpoint{775.76pt}{-823.96pt}}{\pgfpoint{780.31pt}{-802.87pt}}{\pgfpoint{778pt}{-786.75pt}}
-\pgfpathcurveto{\pgfpoint{776.68pt}{-767.78pt}}{\pgfpoint{787.61pt}{-756.04pt}}{\pgfpoint{806.75pt}{-758pt}}
-\pgfusepath{fill}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor1}
-\pgfsetlinewidth{2pt}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{806.75pt}{-758pt}}
-\pgfpathcurveto{\pgfpoint{982.32pt}{-758.69pt}}{\pgfpoint{1158.13pt}{-758.78pt}}{\pgfpoint{1289.25pt}{-758pt}}
-\pgfpathmoveto{\pgfpoint{806.75pt}{-758pt}}
-\pgfpathcurveto{\pgfpoint{965.9pt}{-758.82pt}}{\pgfpoint{1125.77pt}{-758.68pt}}{\pgfpoint{1289.25pt}{-758pt}}
-\pgfpathmoveto{\pgfpoint{1289.25pt}{-758pt}}
-\pgfpathcurveto{\pgfpoint{1307.18pt}{-756.81pt}}{\pgfpoint{1316.91pt}{-767.93pt}}{\pgfpoint{1318pt}{-786.75pt}}
-\pgfpathmoveto{\pgfpoint{1289.25pt}{-758pt}}
-\pgfpathcurveto{\pgfpoint{1306.96pt}{-758.23pt}}{\pgfpoint{1317.44pt}{-768.72pt}}{\pgfpoint{1318pt}{-786.75pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-786.75pt}}
-\pgfpathcurveto{\pgfpoint{1316.87pt}{-807.68pt}}{\pgfpoint{1317.49pt}{-830.46pt}}{\pgfpoint{1318pt}{-844.25pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-786.75pt}}
-\pgfpathcurveto{\pgfpoint{1318.33pt}{-804.1pt}}{\pgfpoint{1317.87pt}{-821.97pt}}{\pgfpoint{1318pt}{-844.25pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-844.25pt}}
-\pgfpathcurveto{\pgfpoint{1319.25pt}{-863.55pt}}{\pgfpoint{1308.87pt}{-872.72pt}}{\pgfpoint{1289.25pt}{-873pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-844.25pt}}
-\pgfpathcurveto{\pgfpoint{1318.73pt}{-863.25pt}}{\pgfpoint{1308.94pt}{-872.82pt}}{\pgfpoint{1289.25pt}{-873pt}}
-\pgfpathmoveto{\pgfpoint{1289.25pt}{-873pt}}
-\pgfpathcurveto{\pgfpoint{1132.72pt}{-872.21pt}}{\pgfpoint{976.79pt}{-872.21pt}}{\pgfpoint{806.75pt}{-873pt}}
-\pgfpathmoveto{\pgfpoint{1289.25pt}{-873pt}}
-\pgfpathcurveto{\pgfpoint{1135.48pt}{-874.32pt}}{\pgfpoint{981.13pt}{-874.19pt}}{\pgfpoint{806.75pt}{-873pt}}
-\pgfpathmoveto{\pgfpoint{806.75pt}{-873pt}}
-\pgfpathcurveto{\pgfpoint{788.79pt}{-874.23pt}}{\pgfpoint{779.04pt}{-863.25pt}}{\pgfpoint{778pt}{-844.25pt}}
-\pgfpathmoveto{\pgfpoint{806.75pt}{-873pt}}
-\pgfpathcurveto{\pgfpoint{787.61pt}{-872.52pt}}{\pgfpoint{777.89pt}{-864.82pt}}{\pgfpoint{778pt}{-844.25pt}}
-\pgfpathmoveto{\pgfpoint{778pt}{-844.25pt}}
-\pgfpathcurveto{\pgfpoint{778.64pt}{-825.62pt}}{\pgfpoint{777.66pt}{-807.33pt}}{\pgfpoint{778pt}{-786.75pt}}
-\pgfpathmoveto{\pgfpoint{778pt}{-844.25pt}}
-\pgfpathcurveto{\pgfpoint{778.66pt}{-823.66pt}}{\pgfpoint{777.79pt}{-802.9pt}}{\pgfpoint{778pt}{-786.75pt}}
-\pgfpathmoveto{\pgfpoint{778pt}{-786.75pt}}
-\pgfpathcurveto{\pgfpoint{776.69pt}{-768.75pt}}{\pgfpoint{787.46pt}{-757.03pt}}{\pgfpoint{806.75pt}{-758pt}}
-\pgfpathmoveto{\pgfpoint{778pt}{-786.75pt}}
-\pgfpathcurveto{\pgfpoint{778.99pt}{-768.12pt}}{\pgfpoint{787.14pt}{-757.79pt}}{\pgfpoint{806.75pt}{-758pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor1,font={\fontfamily{phv}\fontsize{30}{36}\selectfont}] at (1048,-802.10059) {Record \& settlement services};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor4,font={\fontfamily{phv}\fontsize{25}{30}\selectfont}] at (1048,-839.75049) {Register evidence; reconcile payouts};
-\node[anchor=base west,inner sep=0pt,outer sep=0pt,text=mapcolor1,font={\fontfamily{phv}\fontsize{24}{28.8}\selectfont}] at (293,-191.88047) {tasks + funded};
-\node[anchor=base west,inner sep=0pt,outer sep=0pt,text=mapcolor1,font={\fontfamily{phv}\fontsize{24}{28.8}\selectfont}] at (293,-220.68047) {commitments};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor2,font={\fontfamily{phv}\fontsize{24}{28.8}\selectfont}] at (933,-197.88047) {information};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor3,font={\fontfamily{phv}\fontsize{24}{28.8}\selectfont}] at (160.5,-454.88047) {tasks + support};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor1,font={\fontfamily{phv}\fontsize{24}{28.8}\selectfont}] at (1168,-454.88047) {funding / returns};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor4,font={\fontfamily{phv}\fontsize{24}{28.8}\selectfont}] at (1136,-671.88047) {compute / service fees};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor3,font={\fontfamily{phv}\fontsize{24}{28.8}\selectfont}] at (284,-689.88047) {proof artifacts};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor3,font={\fontfamily{phv}\fontsize{24}{28.8}\selectfont}] at (1183,-716.88047) {commit / reveal};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor1,font={\fontfamily{phv}\fontsize{24}{28.8}\selectfont}] at (653,-720.88047) {awards};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor3,font={\fontfamily{phv}\fontsize{24}{28.8}\selectfont}] at (651.5,-793.88047) {acceptance};
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetfillcolor{mapcolor9}
-\pgfsetdash{}{0pt}
-\pgfpathmoveto{\pgfpoint{34.5pt}{-925pt}}
-\pgfpathcurveto{\pgfpoint{429.19pt}{-929.66pt}}{\pgfpoint{824.53pt}{-929.82pt}}{\pgfpoint{1301.5pt}{-925pt}}
-\pgfpathcurveto{\pgfpoint{1312.77pt}{-927.79pt}}{\pgfpoint{1317.4pt}{-931.84pt}}{\pgfpoint{1318pt}{-941.5pt}}
-\pgfpathcurveto{\pgfpoint{1317.09pt}{-948.03pt}}{\pgfpoint{1317.54pt}{-956.77pt}}{\pgfpoint{1318pt}{-974.5pt}}
-\pgfpathcurveto{\pgfpoint{1316.71pt}{-984.34pt}}{\pgfpoint{1310.09pt}{-989.13pt}}{\pgfpoint{1301.5pt}{-991pt}}
-\pgfpathcurveto{\pgfpoint{834.67pt}{-987.3pt}}{\pgfpoint{366.85pt}{-985.95pt}}{\pgfpoint{34.5pt}{-991pt}}
-\pgfpathcurveto{\pgfpoint{22.83pt}{-993.14pt}}{\pgfpoint{18.68pt}{-983.98pt}}{\pgfpoint{18pt}{-974.5pt}}
-\pgfpathcurveto{\pgfpoint{16.6pt}{-967.49pt}}{\pgfpoint{19.38pt}{-953.99pt}}{\pgfpoint{18pt}{-941.5pt}}
-\pgfpathcurveto{\pgfpoint{16.13pt}{-929.09pt}}{\pgfpoint{20.54pt}{-924.17pt}}{\pgfpoint{34.5pt}{-925pt}}
-\pgfusepath{fill}\end{pgfscope}
-\begin{pgfscope}\pgfsetroundcap\pgfsetroundjoin
-\pgfsetstrokecolor{mapcolor10}
-\pgfsetlinewidth{2.5pt}
-\pgfsetdash{{8pt}{10pt}}{0pt}
-\pgfpathmoveto{\pgfpoint{34.5pt}{-925pt}}
-\pgfpathcurveto{\pgfpoint{496.94pt}{-924.6pt}}{\pgfpoint{958.37pt}{-924.24pt}}{\pgfpoint{1301.5pt}{-925pt}}
-\pgfpathmoveto{\pgfpoint{1301.5pt}{-925pt}}
-\pgfpathcurveto{\pgfpoint{1313.82pt}{-925.86pt}}{\pgfpoint{1318.94pt}{-930pt}}{\pgfpoint{1318pt}{-941.5pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-941.5pt}}
-\pgfpathcurveto{\pgfpoint{1317.12pt}{-953.72pt}}{\pgfpoint{1318.75pt}{-965.05pt}}{\pgfpoint{1318pt}{-974.5pt}}
-\pgfpathmoveto{\pgfpoint{1318pt}{-974.5pt}}
-\pgfpathcurveto{\pgfpoint{1318.19pt}{-984.2pt}}{\pgfpoint{1313.46pt}{-990.63pt}}{\pgfpoint{1301.5pt}{-991pt}}
-\pgfpathmoveto{\pgfpoint{1301.5pt}{-991pt}}
-\pgfpathcurveto{\pgfpoint{808.05pt}{-994.94pt}}{\pgfpoint{314.27pt}{-994.14pt}}{\pgfpoint{34.5pt}{-991pt}}
-\pgfpathmoveto{\pgfpoint{34.5pt}{-991pt}}
-\pgfpathcurveto{\pgfpoint{24.71pt}{-991.92pt}}{\pgfpoint{18.85pt}{-986.85pt}}{\pgfpoint{18pt}{-974.5pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-974.5pt}}
-\pgfpathcurveto{\pgfpoint{18.81pt}{-967.4pt}}{\pgfpoint{17.07pt}{-958.15pt}}{\pgfpoint{18pt}{-941.5pt}}
-\pgfpathmoveto{\pgfpoint{18pt}{-941.5pt}}
-\pgfpathcurveto{\pgfpoint{17.49pt}{-930.82pt}}{\pgfpoint{22.39pt}{-925.16pt}}{\pgfpoint{34.5pt}{-925pt}}
-\pgfusepath{stroke}\end{pgfscope}
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor4,font={\fontfamily{phv}\fontsize{27}{32.4}\selectfont}] at (668,-966.49053) {Governance across roles: versions, budgets, conflicts, identity, appeals};
-\node[anchor=base,inner sep=0pt,outer sep=0pt,text=mapcolor10,font={\fontfamily{phv}\fontsize{23}{27.6}\selectfont}] at (668,-1029.01045) {Roles are many-to-many with institutions  |  Blue: resources  \textperiodcentered{}  Teal: work / evidence  \textperiodcentered{}  Purple: information};
-\end{tikzpicture}}%
-\endgroup}
-% MAP_MACRO_END
+\clubpenalty=10000
+\widowpenalty=10000
+\raggedbottom
+\hypersetup{pdftitle={Decentralized Markets for Crowdsourced Mathematics: Summary},pdfsubject={Roles, Incentives, and Institutional Design},pdfauthor={Yangyang Li, Jiaqi Lai, Xinze Li}}
+
+\title[Decentralized Markets for Mathematics]{Decentralized Markets for Crowdsourced Mathematics:\\[3pt]
+Roles, Incentives, and Institutional Design}
+\author{Yangyang Li}
+\author{Jiaqi Lai}
+\author{Xinze Li}
+\date{}
+
+% Active local manuscript: AMS layout with alphabetic citations.
+% Text baseline: Overleaf 3e8c7b3, matching the user's Downloads/MathMarket.pdf.
+% Version provenance and source checks: see resources/version_audit.md.
+% CloK is discussed through its proposed use in this framework.
+% No implemented integration or demonstrated forecast performance is asserted.
+% Keep roles_interactions.pdf in the same directory as this source file.
 \begin{document}
-{\Large\bfseries Decentralized Markets for Crowdsourced Mathematics}\par
-{\large Roles, Incentives, and Institutional Design}\par
-{\normalsize Varifold Lab}\par
-\section*{1. What this paper does}
-AI expands the scale of proof search, while formal proof assistants make accepted results independently checkable. The economic problem is how to fund uncertain attempts and coordinate contributions before a proof exists.
+\maketitle
 
-\textbf{Our contribution.} We develop an abstract framework connecting demand, funding, proof work, verification, and settlement. We compare support for exploration, intermediate rewards, and competing submissions; analyze investment under heterogeneous beliefs and coordination across platforms; and relate these choices to existing initiatives and testable research questions.
+\section{Introduction}
+AI agents can explore proof strategies and work on separate lemmas, while formal proof assistants check the resulting proofs. The human effort and computation needed to find a proof remain uncertain. Verification can establish whether a submitted argument proves the stated claim, but it does not tell us which unfinished attempts to fund.
 
-\begin{center}
-\ecosystemmap
-\end{center}
-\vspace{-6pt}
-{\small\textit{A functional framework.} Each box denotes a role. Several institutions can perform the same role, and one institution can perform several roles. Arrows show principal flows of resources, work, and information.}
+Grants support exploration, whereas prizes reward completed results. When many researchers and agents pursue related tasks, funding decisions must also respond to intermediate results and new information. Which attempts should receive support? How should contributors be paid when their lemmas are useful but the main theorem remains open?
 
-\textbf{Reading the map.} Sponsors value outcomes; investors finance work for contingent returns; solvers perform it. Coordination defines tasks, verification checks proofs, and settlement applies reward rules. Separating these roles makes responsibilities and conflicts visible across institutional arrangements.
+We propose a basic economic framework connecting demand, funding, proof work, verification, and settlement. Within this framework, we compare exploration support, intermediate rewards, and shared terminal prizes, and analyze how forecasts and competition affect investment decisions. Based on this analysis, we identify questions for future research, including the game-theoretic interactions among participants and the design of funding and reward mechanisms.
 
-\textbf{Scope.} The contribution is conceptual: a framework and mechanism comparisons whose effects require empirical evaluation. It accommodates different degrees of decentralization, conventional payments, and crypto-based settlement.
-\newpage
-\section*{2. Funding choices and investment decisions}
-\subsection*{Exploration funding}
-We compare two ways to finance eligible attempts, including those that fail. \textbf{Advance compute credits} reduce liquidity barriers and cap exposure, but restrict provider choice and can encourage exhausting allowances. \textbf{Capped reimbursement} offers more execution choice, but requires participants to front the money and bear audit risk. Both require a finite, committed budget and controls against duplicate claims.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{roles_interactions.pdf}
+\caption{Principal relations among roles. The central row follows tasks and proof evidence; funding, information, and compute support this work. Records and eligibility rules govern payments separately from proof verification. Two-way arrows denote exchanges. One institution may perform several roles, and several institutions may share a role.}
+\label{fig:roles}
+\end{figure}
 
-The audit problem has three layers: actual consumption, task relevance, and productive effort. Receipts and task-bound artifacts support the first two; productivity remains harder to establish. This creates a tradeoff between supporting exploration and the cost of monitoring it. A subsidy lowers private cost while the underlying computation remains a real resource cost.
+\section{Economic framework, funding, and investment}
+\label{sec:framework}
+Demand may come from a research community, a company, or an individual crypto patron. A sponsor values the result or its applications; an investor seeks a financial return from the work it finances. The framework permits conventional payments or cryptocurrency.
 
-\subsection*{Intermediate rewards and cumulative progress}
-We examine rewards for reviewed supporting lemmas before a root theorem is complete. A completed lemma can earn its award even if another branch later fails, enabling specialized contributors to participate. Conditional reductions remain conditional until their dependencies are closed. The main tradeoff is between financing useful partial progress and encouraging arbitrary fragmentation. Reviewed task admission, separate integration rewards, and funded reuse awards address different parts of this problem. Scholarly credit and financial claims require distinct rules.
+Solvers include human researchers, AI agents, and mixed teams. Coordinators define tasks and manage dependencies; verifiers check submitted proofs; settlement services distribute rewards. Compute suppliers provide execution resources, and information providers help participants assess ongoing work. A task specifies the statement, acceptance criteria, budget, and reward rules before work begins.
 
-\subsection*{Priority and shared rewards}
-We compare exclusive priority with sharing a fixed terminal pool among eligible submissions committed within an announced window. A common commitment phase followed by revelation limits copying from protocol disclosures. Sharing can reduce sensitivity to small timing differences and recognize parallel work, but can dilute incentives and invite duplicate or Sybil claims. The window, disclosure schedule, and unit of entitlement therefore matter. Recorded priority supplies evidence for a payment rule; it does not establish independent discovery.
+These roles are not mutually exclusive. A solver may also act as an investor, financing work on some lemmas while proving and integrating others. Delegating a lemma to another participant may reduce costs or shorten completion time, particularly when participants have different expertise or computational resources. Compensation may take the form of a fixed payment or a share of the eventual award.
 
-\subsection*{Investment under heterogeneous beliefs}
-We express investor $i$'s assessment of action $a$ using its own information $\mathcal I_{i,t}$ and subjective beliefs $Q_{i,t}$:
-\[
- \Pi_{i,t}(a)=\mathbb E_{Q_{i,t}}
- [R_i(a)-C_i^{\mathrm{net}}(a)\mid\mathcal I_{i,t}].
-\]
-Here $R_i$ is the investor's contracted receipts and $C_i^{\mathrm{net}}$ its costs after eligible support. Expert advice, prediction prices, and local experiments inform this private evaluation. We distinguish belief in a theorem's truth, success within budget, award eligibility, and eventual profitability. Competition changes both the chance of a payout and its size; liquidity, risk preferences, and the option to stop also affect investment.
+\subsection{Exploration support}
+Advance compute credits fund approved searches before work begins; capped reimbursement covers eligible expenses afterward. Credits reduce the need for upfront funding but restrict provider choice. Reimbursement offers more flexibility but requires participants to front costs and accept audit delays. Both need committed budgets, spending limits, and checks against duplicate claims.
 
-\textbf{Implication across the comparisons.} Sponsor objectives and reward rules shape which work is privately attractive. Evaluating a mechanism requires measuring both participant returns and the scientific benefits produced per unit of total resources.
-\newpage
-\section*{3. Institutional practice and research priorities}
-\subsection*{How existing initiatives inform the framework}
-We relate documented practices to the roles above and identify the additional arrangements needed to connect them. These initiatives illustrate parts of the framework; the proposed combinations remain to be evaluated.
+Reimbursement requires records linking the claimed expenses to the approved task. An unsuccessful attempt may still qualify for support, but support should pay for bounded exploration, not failure itself.
 
-\textbf{Demand and sponsorship.} DARPA expMath and AWS's provable-security work illustrate scientific and corporate demand. The Justin Sun Prize combines crypto-denominated rewards with adjudication. These examples help distinguish valuing an outcome, financing its production, and deciding when an award is due.
+\subsection{Intermediate rewards}
+An approved lemma can carry its own reward, paid when its proof is accepted even if the main theorem remains unresolved. Specialized contributors can then work on individual dependencies. Separate budgets can reward integration and reuse. Reviewing tasks before assigning awards can discourage artificial fragmentation. A reduction that assumes unresolved lemmas does not complete the main theorem.
 
-\textbf{Coordination and settlement.} OpenMath describes theorem discovery, proving, commitments, revelation, and reward claims. Prove2Me organizes missions, proof-sketch dependencies, and contribution credit. x402 supplies a payment interface that agents could use to purchase compute or proof-checking services. These service purchases require spending limits and expenditure evidence; mathematical acceptance and award eligibility retain separate rules. The workflows provide settings for examining task identity, intermediate rewards, and verification delays under explicit budgets.
+\subsection{Priority and shared rewards}
+A fixed terminal prize can go to the first eligible submission or be shared among eligible submissions committed within an announced window. A shared commitment phase followed by proof disclosure limits copying from those disclosures. Sharing can recognize near-simultaneous work but reduces each winner's payment and can encourage duplicate claims through multiple accounts. Contracts must specify timing, eligibility, and whether rewards attach to a participant, team, or distinct contribution.
 
-\textbf{Information.} Kalshi's filed Millennium contract concerns an official prize-award event. Expert assessments and local proof experiments can also inform investors' beliefs. Using these inputs in a private investment decision requires matching each assessment to the investor's task, budget, and horizon.
+\subsection{Investment under heterogeneous beliefs}
+Investor $i$ evaluates action $a$ using information $\mathcal I_{i,t}$ and subjective beliefs $Q_{i,t}$:
+\begin{equation}
+\label{eq:expected-return}
+ \Pi_{i,t}(a)=\mathbb E_{Q_{i,t}}\!\left[
+ R_i(a)-C_i^{\mathrm{net}}(a)\mid\mathcal I_{i,t}\right].
+\end{equation}
+Here $R_i$ denotes the investor's contracted receipts and $C_i^{\mathrm{net}}$ its costs after eligible support. Investors may disagree about the same task; liquidity and risk preferences also affect their decisions. Producing a valid proof, qualifying for payment, and earning a profit are different outcomes.
 
-\subsection*{Cross-platform coordination and institutional risks}
-We identify common task versions, evidence bundles, and reconciled payment claims as requirements for coordination across platforms. A valid proof, an eligible contribution, and a payable entitlement are separate determinations. Shared records support these decisions alongside rules for authority, conflicts, and appeals.
+The action \(a\) may include proving a lemma directly, delegating it, or combining internal and external work. These choices involve tradeoffs among payments, coordination costs, and completion time. The expression above measures expected financial return; a participant's broader objective may also include scientific progress, timely completion, and recognition.
 
-\renewcommand{\arraystretch}{1.16}
-\begin{tabular}{@{}p{0.25\linewidth}p{0.70\linewidth}@{}}
-\toprule
-\textbf{Design problem} & \textbf{Central tradeoff}\\
-\midrule
-Formal targets & Mechanical acceptance supports clear contracts; statement meaning, assumptions, and scientific value still require review.\\
-Effort and attribution & Audits and eligibility checks can deter waste and duplicate claims, while raising privacy, entry, and administration costs.\\
-Authority and information & Shared services can improve coordination, while concentrated providers and financially interested participants create correlated risks.\\
-Funding credibility & Escrow and reconciled claims support payment commitments; reliable service capacity and solvency require separate evidence.\\
-\bottomrule
-\end{tabular}
+Expert assessments, forecasts, and local experiments inform these decisions. Their relevance depends on the task, proving procedure, budget, and horizon. Competition affects both the probability of receiving an award and the share paid to each successful contributor.
 
-\subsection*{The empirical agenda}
-\textbf{Funding:} With the same total budget, which mix of exploration support, lemma rewards, and terminal prizes produces more accepted and reused work?\par
-\textbf{Sharing:} How do reward windows and disclosure schedules affect completion, duplicate effort, entry, and disputed payments?\par
-\textbf{Information:} Do forecasts improve allocation compared with simple baselines when unsuccessful and censored attempts are included?\par
-Across these tests, the outcome measures are mathematical progress, total compute and review cost, participation, and credible settlement. Institutional experience can refine both the assumptions and the mechanisms being compared.
+\section{Institutional examples and coordination}
+\label{sec:examples}
 
-\vfill
-{\footnotesize\textbf{Companion manuscript, Version 2.} Sections 2--5 develop the framework and mechanisms; Section 6 discusses institutional examples; Section 7 develops the research agenda. Full references and source qualifications are provided there.}
+As of this writing (October 2026), several functions identified in the framework above have taken concrete form in existing projects and institutional practices. We examine the roles these initiatives play in an emerging ecosystem for mathematical research, how they complement one another, and what coordination problems remain.
+
+\subsection{Institutional funding and demand}
+Government agencies, philanthropic foundations, and corporate sponsors provide organized channels for supporting mathematical research and infrastructure. DARPA's expMath program seeks AI systems that decompose mathematical problems and develop reusable lemmas~\cite{darpa}. The Simons Foundation supports researchers, institutions, and scientific infrastructure through its Mathematics and Physical Sciences division~\cite{simons}. Renaissance Philanthropy's AI for Math Fund, with XTX Markets as its founding donor, supports mathematical research, tools, and infrastructure~\cite{renaissance}. XTX Markets also reports support for Lean and mathlib~\cite{xtx}.
+
+These arrangements support research capacity as well as particular results. AWS's use of automated reasoning for security illustrates corporate demand for verified capabilities~\cite{aws}. Such demand can motivate funded tasks, while institutional grants can support people and shared tools. The relevant distinction is how funding is organized and administered: foundations and companies also deploy private capital.
+
+\subsection{Individual patronage and cryptocurrency prizes}
+Individually initiated prizes provide a further route for sponsoring mathematics. The Justin Sun Prize is personally funded by Justin Sun and administered through a dedicated prize organization. Its rules announce a USD~1~million award for each qualifying problem in the highest tier and distinguish solving from Lean formalization contributions. Awards are denominated in dollars, with payment specified in USDT on TRON or USDC on Ethereum~\cite{sunclaims,sun}. The dollar thus provides the unit of account, while stablecoins provide the settlement asset.
+
+The public award register already lists recognized solving and formalization contributions~\cite{sunawards}. Together with submission, verification, priority-review, and claim procedures, these records document an operating incentive scheme for mathematical results. Cryptocurrency-based sponsorship has therefore acquired concrete organizational form outside conventional mathematical prize institutions. Its effects on additional research effort and mathematical output remain empirical questions.
+
+\subsection{CloK: forecasts for funding decisions}
+In this framework, CloK would serve as an information provider. Its predictions could provide important information before a proof is available, when sponsors decide what to fund and investors choose which attempts to support. Relevant assessments concern a conjecture's truth, the resources needed to resolve it, and the further results that its resolution could enable.
+
+Such information could help compare candidate lemmas, allocate compute among approaches, and revise funding as work progresses. An inexpensive lemma may unlock several costly tasks; a plausible conjecture may still be a poor short-term investment. Sponsors may prioritize mathematical value, while investors must also account for the reward and competing teams.
+
+Using CloK's forecasts in this way requires relating them to a specified task, proving procedure, budget, and horizon. Confidence in a conjecture's truth is not the probability that a particular team will earn a reward. Forecasts would guide decisions about unfinished work, rather than replace verification afterward.
+
+\subsection{OpenMath: token incentives and rewards for reuse}
+OpenMath explores an arrangement built around CTK, Shentu's transferable native token, which is also traded on cryptocurrency exchanges~\cite{shentutoken,ctkmarket}. The platform uses CTK for theorem funding and proof rewards. Its documented interface integrates Web3-wallet authentication, transaction signing, and reward claims; users can publish funded statements and add funding to open theorems. Its agent tooling supports local Lean or Rocq proof work, followed by a proof-hash commitment, disclosure, and verification~\cite{openmath}. Wallet integration connects participation and proof submission to the account used to receive rewards.
+
+The reward rules also account for reused results. In the published v2.19.0 implementation, an accepted proof triggers allocation from the theorem's funded pool: the checker receives a complexity-based amount, the proposers of referenced theorems receive reuse payments, and the current prover receives the remainder~\cite{openmathprotocol}. A referenced theorem's payment depends on its recorded complexity and prior import count. The recipient is its registered proposer, who need not be its proof author.
+
+These arrangements make reward denomination and settlement infrastructure explicit elements of mechanism design. The Justin Sun Prize specifies dollar amounts for stablecoin settlement, whereas OpenMath embeds rewards in a native-token economy. For a contributor evaluating returns in dollars, a CTK reward's realized value depends on the exchange rate and liquidity at conversion. Reuse payments additionally connect intermediate results to later funding, raising questions about who holds the reuse claim and how complexity and reuse should be valued. Upfront exploration support and sharing among competing successful proofs remain separate design choices.
+
+\subsection{Prove2Me: collaborative formalization}
+Prove2Me provides infrastructure for collaborative formalization by human contributors and AI agents. A mission specifies a goal, its definitions, and selected milestone lemmas for human audit. Proof sketches express the goal's dependence on separately stated lemmas, allowing agents to work on different parts of the argument; completion requires closing the necessary dependencies. Proved results can be searched and imported across missions. The platform records credit both for completing proofs and for proposing statements that later proofs reuse~\cite{prove2me}.
+
+The platform played a central role in the Fermat's Last Theorem formalization reported by Anthropic in September 2026. Using Prove2Me and a Claude Code-based multi-agent system, Claude agents produced a complete Lean formalization in 11 days, with approximately 13 million lines of code and 29,500 intermediate theorems used in the final proof. Prove2Me supplied dependency tracking, compilation support, and theorem search and reuse. The development also incorporated work from Mathlib, the Imperial College FLT project, and the regular-prime formalization~\cite{anthropicflt}. This provides a concrete example of coordinating many local proof contributions into a verified mathematical result.
+
+In our framework, mission milestones and recorded dependencies could serve as units for allocating compute, sponsoring intermediate lemmas, and attributing contributions. Funding could support separate proof tasks as well as their integration into a completed mission. Attaching rewards to these units would require committed budgets and contracts specifying eligibility and the division of payments among proof authors, integrators, and contributors of reused results. Contribution credit supplies an attribution record; payment rights would be defined by those contracts.
+
+\subsection{Prediction markets: rewarding informed participants}
+Prediction markets create opportunities to earn returns from information about future events~\cite{wolfers}. Consider a contract paying one unit if an accepted proof is published by a fixed deadline, and zero otherwise. A risk-neutral participant assigning probability $q$ to that event has a subjective expected profit of $q-p$ when buying at price $p$, before fees and financing costs. Better-informed participants may profit by identifying mispriced contracts, while mistaken judgments can incur losses. These incentives can encourage information gathering and bring dispersed knowledge into market prices.
+
+In mathematics, research insiders may understand a promising approach, a difficult dependency, or the capabilities of a proving system before that information is widely appreciated. A market that permits their participation could reward this knowledge through trading returns, including when they do not submit the final proof. For example, someone who recognizes an overlooked obstruction could profit from a contract paying on non-completion. Their trades could help sponsors and investors revise funding decisions. This provides a possible source of compensation for information providers, alongside rewards for producing mathematical results.
+
+Exchanges such as Kalshi illustrate event-based settlement: its filed Millennium Prize contract concerns an official award announcement by the Clay Mathematics Institute~\cite{kalshi}. A market for proof completion would need its own acceptance criteria and deadline. Participation rules also shape the incentive mechanism: Kalshi prohibits insider trading and trading by people able to influence the outcome~\cite{kalshirules}. Rewarding research insiders is therefore a design question for a proposed research market. It requires deciding which information and participants are eligible, how trading relates to disclosure, and how to prevent positions on non-completion from rewarding the withholding or obstruction of progress.
+
+\subsection{Coordination across institutions}
+Connecting these functions requires common task identifiers and versions, reproducible verification environments, authenticated submission records, and reconciled payment claims. A lemma-level forecast, the funded task, and the submitted proof must refer to compatible statements and assumptions. Contracts must specify who may revise tasks, decide eligibility, and resolve disputes; each payment claim must be redeemable only once. Independent review matters when an institution both finances a solver and judges its award. Shared records can support priority and settlement, but cannot establish independent discovery.
+
+\section{Future research}
+\label{sec:research}
+
+\subsection{Game theory and mechanism design}
+A game-theoretic model should take individuals, teams, or institutions as players, rather than the roles themselves. Each player has its own objectives and may perform several roles. A team may pursue a theorem, finance delegated lemmas, and compete for rewards on other tasks. Its decisions reflect its objectives across these activities, which may include financial return, scientific progress, completion time, and reputation.
+
+A natural next step is to study a dynamic game with incomplete information about task difficulty, capabilities, costs, and private progress. Players choose what to prove themselves, what to delegate, whom to collaborate with, and when to disclose results. When does delegation reduce total cost or accelerate completion? When does competition support complementary work rather than duplication? Which contracts and reward rules encourage participants with different objectives to share useful results?
+
+\subsection{Forecasts, entry, and disclosure}
+A favorable forecast, including one supplied by CloK, may attract funding and additional solvers. This can raise the chance of completing a mission while reducing individual returns through competition. How should allocation rules respond to this feedback? How should information providers be rewarded when their forecasts influence the outcomes being predicted? What disclosure and conflict-of-interest rules are needed when forecasters also invest in or work on the tasks they assess?
+
+These questions also concern correlated mistakes. When many participants rely on similar models or forecasts, apparently separate investments may support the same unsuccessful strategy. A model of investment should account for shared methods and proof dependencies, not only the number of funded tasks.
+
+\subsection{Empirical evaluation}
+Controlled comparisons should hold total budgets fixed while varying exploration support, lemma rewards, terminal prize rules, and disclosure schedules. Outcomes should include accepted and reused results, completion times, total compute and review costs, participation, duplicate work, and disputed payments. Results reused across missions should be recorded so that benefits and costs are not counted as independent.
+
+Forecasts should be recorded before attempts begin. A CloK-informed allocation policy could then be compared with expert selection, equal allocation among eligible tasks, and policies based on local proof experiments. Evaluation should include unsuccessful attempts and account for censoring in stopped or unfinished runs. Prediction accuracy and decision quality should be measured separately: the central question is whether forecasts improve the allocation of resources and the mathematical progress those resources produce.
+
+\begin{thebibliography}{CML$^{+}$26}
+\setlength{\itemsep}{3pt}
+\bibitem[Ant26]{anthropicflt} Anthropic. \emph{Formalizing Fermat's Last Theorem}. September~4, 2026. \href{https://www.anthropic.com/news/formalizing-fermats-last-theorem}{Official research report}; \href{https://github.com/anthropics/fermats-last-theorem}{published Lean proof and verification documentation}.
+\bibitem[AWS]{aws} Amazon Web Services. \emph{Provable Security}. Undated. \href{https://aws.amazon.com/security/provable-security/}{Official overview}. Accessed October~14, 2026.
+\bibitem[Bin]{ctkmarket} Binance. \emph{CTK/USDT Spot Market}. Undated. \href{https://www.binance.com/en/trade/CTK_USDT?type=spot}{Exchange market page}. Accessed October~14, 2026.
+\bibitem[CML$^{+}$26]{prove2me} Shuze Chen, Kunal Marwaha, Xiaoyang Lu, Henry Yuen, and Tianyi Peng. \emph{Prove2Me: An Open Collaborative Platform for Scaling Math Formalization}. \href{https://arxiv.org/abs/2608.28433v2}{arXiv:2608.28433v2}, August~31, 2026. DOI: \href{https://doi.org/10.48550/arXiv.2608.28433}{10.48550/arXiv.2608.28433}.
+\bibitem[DARPA]{darpa} DARPA. \emph{expMath (Exponentiating Mathematics)}. Undated. \href{https://www.darpa.mil/research/programs/expmath-exponential-mathematics}{Official program description}. Accessed October~14, 2026.
+\bibitem[JSPa]{sunawards} The Justin Sun Prize. \emph{Confirmed Awards}. Undated. \href{https://github.com/TheJustinSunPrize/awards/blob/fd8fa66abb4e21df828fdebc25298e9ad75521bd/awards/README.md}{Official award register}, repository snapshot \texttt{fd8fa66}. Accessed October~14, 2026.
+\bibitem[JSPb]{sunclaims} The Justin Sun Prize. \emph{Prize Claim Guidelines}. Undated. \href{https://www.hejustinsun.com/prize/claim}{Official procedures}, sections~I--IV. Accessed October~14, 2026.
+\bibitem[JSPc]{sun} The Justin Sun Prize. \emph{Justin Sun Prize Selection Rules}. Undated. \href{https://www.hejustinsun.com/prize/rules}{Official rules}, sections~2.1, 3.1, 3.3, 4.1, and~5. Accessed October~14, 2026.
+\bibitem[Kal]{kalshirules} Kalshi. \emph{Stopping Insider Trading}. Undated. \href{https://kalshi.com/policy-center/insider-trading}{Official policy overview}. Accessed October~14, 2026.
+\bibitem[KEX25]{kalshi} KalshiEX LLC. \emph{Will a Millennium Prize Be Awarded Before $\langle\mathrm{date}\rangle$?} \href{https://www.cftc.gov/filings/ptc/ptc08142528943.pdf}{Contract filing}, August~14, 2025, Appendix~A.
+\bibitem[RP]{renaissance} Renaissance Philanthropy. \emph{AI for Math Fund}. Undated. \href{https://www.renaissancephilanthropy.org/ai-for-math-fund/}{Official fund description}. Accessed October~14, 2026.
+\bibitem[SFa]{openmath} Shentu Foundation. \emph{OpenMath Learn Doc} and \emph{OpenMath Skills Arena}. Undated. \href{https://github.com/shentufoundation/docs/blob/main/docs/openmath/openmath-learn-doc.md}{Official user documentation}, sections~2, 4--6; \href{https://github.com/shentufoundation/openmath-skills}{agent tooling}. Accessed October~14, 2026.
+\bibitem[SFb]{shentutoken} Shentu Foundation. \emph{Shentu Chain Whitepaper}. Undated draft. \href{https://shentu.org/whitepaper}{Official whitepaper}, section~1.2, ``CTK Coin and Economic Model.'' Accessed October~14, 2026.
+\bibitem[SF26]{openmathprotocol} Shentu Foundation. \emph{Shentu v2.19.0}. Software, 2026. \href{https://github.com/shentufoundation/shentu/blob/v2.19.0/x/bounty/keeper/funds.go}{OpenMath reward allocation}; \href{https://github.com/shentufoundation/shentu/blob/v2.19.0/x/bounty/keeper/msg_server.go}{proof acceptance and theorem creation}. Accessed October~14, 2026.
+\bibitem[Sim]{simons} Simons Foundation. \emph{Mathematics \& Physical Sciences}. Undated. \href{https://www.simonsfoundation.org/mathematics-physical-sciences/}{Official division overview}. Accessed October~14, 2026.
+\bibitem[WZ04]{wolfers} Justin Wolfers and Eric Zitzewitz. ``Prediction Markets.'' \emph{Journal of Economic Perspectives} 18(2): 107--126, 2004. DOI: \href{https://doi.org/10.1257/0895330041371321}{10.1257/0895330041371321}.
+\bibitem[XTX26]{xtx} XTX Markets. \emph{Update on XTX Markets' AI for Maths Philanthropy}. September~16, 2026. \href{https://about.xtxmarkets.com/news/2026-update-on-xtx-markets-ai-philanthropy/}{Official announcement}. Accessed October~14, 2026.
+\end{thebibliography}
+
 \end{document}

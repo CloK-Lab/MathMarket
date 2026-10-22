@@ -28,10 +28,9 @@
 \clubpenalty=10000
 \widowpenalty=10000
 \raggedbottom
-\hypersetup{pdftitle={Decentralized Markets for Crowdsourced Mathematics: Summary},pdfsubject={Roles, Incentives, and Institutional Design},pdfauthor={Yangyang Li, Jiaqi Lai, Xinze Li}}
+\hypersetup{pdftitle={Market for Formally Verifiable Work},pdfauthor={Yangyang Li, Jiaqi Lai, Xinze Li}}
 
-\title[Decentralized Markets for Mathematics]{Decentralized Markets for Crowdsourced Mathematics:\\[3pt]
-Roles, Incentives, and Institutional Design}
+\title{Market for Formally Verifiable Work}
 \author{Yangyang Li}
 \author{Jiaqi Lai}
 \author{Xinze Li}
@@ -51,7 +50,7 @@ AI agents can explore proof strategies and work on separate lemmas, while formal
 
 Grants support exploration, whereas prizes reward completed results. When many researchers and agents pursue related tasks, funding decisions must also respond to intermediate results and new information. Which attempts should receive support? How should contributors be paid when their lemmas are useful but the main theorem remains open?
 
-We propose a basic economic framework connecting demand, funding, proof work, verification, and settlement. Within this framework, we compare exploration support, intermediate rewards, and shared terminal prizes, and analyze how forecasts and competition affect investment decisions. Based on this analysis, we identify questions for future research, including the game-theoretic interactions among participants and the design of funding and reward mechanisms.
+We propose a basic economic framework connecting demand, funding, proof work, verification, and settlement. Within this framework, we compare exploration support, intermediate rewards, and shared terminal prizes, and analyze how forecasts and competition affect investment decisions. Based on this analysis, we identify questions for future research, including the game-theoretic interactions among participants and the design of funding and reward mechanisms. Our examples come from mathematics, but the framework applies to any work whose acceptance can be checked formally, including verified software, hardware, and security properties.
 
 \begin{figure}[htbp]
 \centering
@@ -64,7 +63,7 @@ We propose a basic economic framework connecting demand, funding, proof work, ve
 \label{sec:framework}
 Demand may come from a research community, a company, or an individual crypto patron. A sponsor values the result or its applications; an investor seeks a financial return from the work it finances. The framework permits conventional payments or cryptocurrency.
 
-Solvers include human researchers, AI agents, and mixed teams. Coordinators define tasks and manage dependencies; verifiers check submitted proofs; settlement services distribute rewards. Compute suppliers provide execution resources, and information providers help participants assess ongoing work. A task specifies the statement, acceptance criteria, budget, and reward rules before work begins.
+Solvers include human researchers, AI agents, and mixed teams. Coordinators define tasks and manage dependencies; verifiers check submitted proofs; settlement services distribute rewards. Compute suppliers provide execution resources, and information providers help participants assess ongoing work. A task specifies the statement, acceptance criteria, budget, and reward rules before work begins. The statement may be a mathematical theorem or a formal specification that software, hardware, or a protocol must satisfy.
 
 These roles are not mutually exclusive. A solver may also act as an investor, financing work on some lemmas while proving and integrating others. Delegating a lemma to another participant may reduce costs or shorten completion time, particularly when participants have different expertise or computational resources. Compensation may take the form of a fixed payment or a share of the eventual award.
 
@@ -121,6 +120,13 @@ The reward rules also account for reused results. In the published v2.19.0 imple
 
 These arrangements make reward denomination and settlement infrastructure explicit elements of mechanism design. The Justin Sun Prize specifies dollar amounts for stablecoin settlement, whereas OpenMath embeds rewards in a native-token economy. For a contributor evaluating returns in dollars, a CTK reward's realized value depends on the exchange rate and liquidity at conversion. Reuse payments additionally connect intermediate results to later funding, raising questions about who holds the reuse claim and how complexity and reuse should be valued. Upfront exploration support and sharing among competing successful proofs remain separate design choices.
 
+\subsection{PNT+ and Tau Ceti: community formalization}
+The Prime Number Theorem and Beyond (PNT+) project, led by Alex Kontorovich and Terence Tao, pioneered the crowdsourcing of mathematics through formal verification. Its blueprint divides the target results into separately stated lemmas; contributors claim individual tasks through the project's issue tracker, coordinate on the Lean Zulip, and submit proofs that Lean checks~\cite{pnt}. The proof assistant, rather than trust in each contributor, confirms that the pieces fit together.
+
+Tau Ceti, incubated by the Lean FRO and the Mathlib Initiative, extends this division of labor to AI contributors. Mathematicians and formalization experts write roadmaps; AI agents implement the formal mathematics, and other AI agents review each contribution adversarially against rubrics written by humans. The library builds on Mathlib without duplicating it and was reported in October 2026 to be slightly larger than Mathlib~\cite{tauceti,taucetipost}. Contributors supply roadmaps or pay the inference costs of their own pull requests; the organizers have announced financial models for the project but not yet published them~\cite{taucetipost}.
+
+These projects show that coordination and verification can operate at scale without task-level payments. Blueprints and roadmaps perform the coordinator's role in our framework. Review rubrics address what a proof checker alone cannot: whether a formal statement says what was intended. Attaching payments to such tasks would add questions of eligibility and attribution, which the remaining examples address in different ways.
+
 \subsection{Prove2Me: collaborative formalization}
 Prove2Me provides infrastructure for collaborative formalization by human contributors and AI agents. A mission specifies a goal, its definitions, and selected milestone lemmas for human audit. Proof sketches express the goal's dependence on separately stated lemmas, allowing agents to work on different parts of the argument; completion requires closing the necessary dependencies. Proved results can be searched and imported across missions. The platform records credit both for completing proofs and for proposing statements that later proofs reuse~\cite{prove2me}.
 
@@ -158,6 +164,7 @@ Forecasts should be recorded before attempts begin. A CloK-informed allocation p
 
 \begin{thebibliography}{CML$^{+}$26}
 \setlength{\itemsep}{3pt}
+\bibitem[ABC$^{+}$26]{taucetipost} Jeremy Avigad, Kevin Buzzard, Johan Commelin, R\'emy Degenne, Kim Morrison, Oliver Nash, and Adam Topaz. ``How to Formalize All of Mathematics.'' \emph{Xena Project} (blog), October~16, 2026. \href{https://xenaproject.wordpress.com/2026/10/16/how-to-formalize-all-of-mathematics/}{Guest post}.
 \bibitem[Ant26]{anthropicflt} Anthropic. \emph{Formalizing Fermat's Last Theorem}. September~4, 2026. \href{https://www.anthropic.com/news/formalizing-fermats-last-theorem}{Official research report}; \href{https://github.com/anthropics/fermats-last-theorem}{published Lean proof and verification documentation}.
 \bibitem[AWS]{aws} Amazon Web Services. \emph{Provable Security}. Undated. \href{https://aws.amazon.com/security/provable-security/}{Official overview}. Accessed October~14, 2026.
 \bibitem[Bin]{ctkmarket} Binance. \emph{CTK/USDT Spot Market}. Undated. \href{https://www.binance.com/en/trade/CTK_USDT?type=spot}{Exchange market page}. Accessed October~14, 2026.
@@ -168,11 +175,13 @@ Forecasts should be recorded before attempts begin. A CloK-informed allocation p
 \bibitem[JSPc]{sun} The Justin Sun Prize. \emph{Justin Sun Prize Selection Rules}. Undated. \href{https://www.hejustinsun.com/prize/rules}{Official rules}, sections~2.1, 3.1, 3.3, 4.1, and~5. Accessed October~14, 2026.
 \bibitem[Kal]{kalshirules} Kalshi. \emph{Stopping Insider Trading}. Undated. \href{https://kalshi.com/policy-center/insider-trading}{Official policy overview}. Accessed October~14, 2026.
 \bibitem[KEX25]{kalshi} KalshiEX LLC. \emph{Will a Millennium Prize Be Awarded Before $\langle\mathrm{date}\rangle$?} \href{https://www.cftc.gov/filings/ptc/ptc08142528943.pdf}{Contract filing}, August~14, 2025, Appendix~A.
+\bibitem[KT]{pnt} Alex Kontorovich, Terence Tao, et al. \emph{PrimeNumberTheoremAnd}. Undated. \href{https://github.com/AlexKontorovich/PrimeNumberTheoremAnd}{Project repository}, with blueprint and contributing guide. Accessed October~21, 2026.
 \bibitem[RP]{renaissance} Renaissance Philanthropy. \emph{AI for Math Fund}. Undated. \href{https://www.renaissancephilanthropy.org/ai-for-math-fund/}{Official fund description}. Accessed October~14, 2026.
 \bibitem[SFa]{openmath} Shentu Foundation. \emph{OpenMath Learn Doc} and \emph{OpenMath Skills Arena}. Undated. \href{https://github.com/shentufoundation/docs/blob/main/docs/openmath/openmath-learn-doc.md}{Official user documentation}, sections~2, 4--6; \href{https://github.com/shentufoundation/openmath-skills}{agent tooling}. Accessed October~14, 2026.
 \bibitem[SFb]{shentutoken} Shentu Foundation. \emph{Shentu Chain Whitepaper}. Undated draft. \href{https://shentu.org/whitepaper}{Official whitepaper}, section~1.2, ``CTK Coin and Economic Model.'' Accessed October~14, 2026.
 \bibitem[SF26]{openmathprotocol} Shentu Foundation. \emph{Shentu v2.19.0}. Software, 2026. \href{https://github.com/shentufoundation/shentu/blob/v2.19.0/x/bounty/keeper/funds.go}{OpenMath reward allocation}; \href{https://github.com/shentufoundation/shentu/blob/v2.19.0/x/bounty/keeper/msg_server.go}{proof acceptance and theorem creation}. Accessed October~14, 2026.
 \bibitem[Sim]{simons} Simons Foundation. \emph{Mathematics \& Physical Sciences}. Undated. \href{https://www.simonsfoundation.org/mathematics-physical-sciences/}{Official division overview}. Accessed October~14, 2026.
+\bibitem[TCP]{tauceti} Tau Ceti Project. \emph{Tau Ceti}. Undated. \href{https://github.com/TauCetiProject/TauCeti}{Project repository}; \href{https://taucetiproject.org}{project website}. Accessed October~21, 2026.
 \bibitem[WZ04]{wolfers} Justin Wolfers and Eric Zitzewitz. ``Prediction Markets.'' \emph{Journal of Economic Perspectives} 18(2): 107--126, 2004. DOI: \href{https://doi.org/10.1257/0895330041371321}{10.1257/0895330041371321}.
 \bibitem[XTX26]{xtx} XTX Markets. \emph{Update on XTX Markets' AI for Maths Philanthropy}. September~16, 2026. \href{https://about.xtxmarkets.com/news/2026-update-on-xtx-markets-ai-philanthropy/}{Official announcement}. Accessed October~14, 2026.
 \end{thebibliography}
